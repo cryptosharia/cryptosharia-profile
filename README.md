@@ -1,38 +1,31 @@
-# sv
+# CryptoSharia Profile
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+**CryptoSharia Profile** is the official web profile for **CryptoSharia**, an Islamic-based crypto education platform. This project serves as the digital gateway to the community, showcasing its mission, team, and activities through a modern, responsive, and high-performance Web3 interface.
 
-## Creating a project
+## 🚀 Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+Built with the latest technologies for speed, accessibility, and developer experience:
 
-```sh
-# create a new project in the current directory
-npx sv create
+- **Framework:** [SvelteKit](https://kit.svelte.dev/) (Powered by **Svelte 5** Runes)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/) with [Fluid TailwindCSS](https://fluid-tailwindcss.vercel.app/)
+- **Components:** [Shadcn Svelte](https://www.shadcn-svelte.com/) (UI components collection)
 
-# create a new project in my-app
-npx sv create my-app
-```
+## ✨ Key Features
 
-## Developing
+- **Modern UI/UX:** A premium aesthetic combining "Faith & Future Tech" with smooth transitions.
+- **Comprehensive Sections:**
+  - **Hero:** Engaging introduction to the platform.
+  - **About:** Deep dive into the mission and Sharia principles.
+  - **Partners:** Highlighting collaborations within the Web3 space.
+  - **Team:** Showcasing the experts behind the movement.
+  - **Discord:** Community engagement and social hubs.
+- **Blog:** Educational articles and community activities.
+- **Screening**: Crypto token screening and Sharia compliance.
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop viewing.
+- **SEO Optimized:** Semantic HTML and meta tags for better visibility.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 🔗 Links
 
-```sh
-npm run dev
+### 🌐 **Website:** [_cryptosharia.id_](https://cryptosharia.id)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### 🧑🏻‍💻 **Developers:** [_Daffa Ilhami_](https://github.com/mdaffailhami)
