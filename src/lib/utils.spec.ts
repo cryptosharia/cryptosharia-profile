@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import formatDate, { cn } from './utils';
+import { cn, formatDate } from './utils';
 
 describe('utils', () => {
 	describe('formatDate', () => {
@@ -24,7 +24,7 @@ describe('utils', () => {
 			expect(cn('px-2 py-2', 'px-4')).toBe('py-2 px-4');
 		});
 
-		it('handles conditional clasd = new Dses', () => {
+		it('handles conditional classes', () => {
 			const isTrue = true;
 			const isFalse = false;
 			expect(cn('base', isTrue && 'is-true', isFalse && 'is-false')).toBe('base is-true');
