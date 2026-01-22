@@ -4,6 +4,7 @@
 	import Team from './_components/sections/Team.svelte';
 	import Discord from './_components/sections/Discord.svelte';
 	import Partners from './_components/sections/Partners.svelte';
+	import Activities from './_components/sections/Activities.svelte';
 	import Footer from './_components/sections/Footer.svelte';
 </script>
 
@@ -13,5 +14,6 @@
 	<Partners />
 	<Team />
 	<Discord />
+	<Activities />
 	<Footer />
 </div>
