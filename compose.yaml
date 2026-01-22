@@ -3,7 +3,7 @@
 # 5173 = CryptoSharia API
 # 5174 = CryptoSharia Admin
 # 5175 = CryptoSharia Profile
-# 5176 = CryptoSharia News
+# 5176 = CryptoSharia Media
 
 services:
   cryptosharia-profile:
