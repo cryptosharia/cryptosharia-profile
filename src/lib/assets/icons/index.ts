@@ -2,3 +2,8 @@ export { default as btc } from './btc.png';
 export { default as eth } from './eth.png';
 export { default as sol } from './sol.png';
 export { default as sui } from './sui.png';
+export { default as instagramIcon } from './instagram.png';
+export { default as tiktokIcon } from './tiktok.png';
+export { default as xIcon } from './x.png';
+export { default as facebookIcon } from './facebook.png';
+export { default as youtubeIcon } from './youtube.png';

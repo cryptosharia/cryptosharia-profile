@@ -62,7 +62,7 @@
 		...restProps
 	}: ButtonProps = $props();
 
-	const myClass = 'cursor-pointer';
+	const myClass = 'cursor-pointer font-bold';
 </script>
 
 {#if href}

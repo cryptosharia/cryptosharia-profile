@@ -132,7 +132,7 @@
 						variant="default"
 						href="https://berbagi.link/cryptosharia"
 						size="lg"
-						class="peer order-2 border-white fl-text-base/xl font-bold hover:border-primary"
+						class="peer order-2 border-white fl-text-base/xl hover:border-primary"
 						>&lt; Join Sekarang &gt;</Button
 					>
 					<DiscordIcon

@@ -50,7 +50,7 @@
 		<Button
 			href={link.href}
 			onclick={closeDrawer}
-			class={cn('rounded-full font-bold', isMobile ? 'w-full text-base' : 'fl-text-sm/base')}
+			class={cn('rounded-full', isMobile ? 'w-full text-base' : 'fl-text-sm/base')}
 		>
 			{link.text}
 		</Button>
