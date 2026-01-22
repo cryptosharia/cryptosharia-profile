@@ -47,9 +47,15 @@
 		@apply bg-background;
 	}
 
+	/* Specify base styles for all elements */
 	*,
 	::before,
 	::after {
 		@apply border-line shadow-shade outline-primary-400;
+	}
+
+	/* Custom selection styles */
+	::selection {
+		@apply bg-primary text-on-primary;
 	}
 }
