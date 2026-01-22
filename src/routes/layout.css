@@ -33,6 +33,7 @@
 	--color-primary: var(--color-primary-600);
 	--color-primary-light: var(--color-primary-100);
 	--color-primary-dark: var(--color-primary-900);
+	--color-on-primary: var(--color-white);
 }
 
 @layer base {
@@ -46,10 +47,9 @@
 		@apply bg-background;
 	}
 
-	/* Specify all elements base styles */
 	*,
 	::before,
 	::after {
-		@apply border-line shadow-shade outline-primary;
+		@apply border-line shadow-shade outline-primary-400;
 	}
 }
