@@ -12,7 +12,7 @@
 	let { title, subtitle, class: className, titleClass, subtitleClass }: Props = $props();
 </script>
 
-<div class={cn('mx-auto fl-space-y-3/4 max-w-3xl text-center', className)}>
+<div class={cn('mx-auto fl-space-y-3/4 mb-10 max-w-3xl text-center', className)}>
 	<h2 class={cn('font-serif fl-text-3xl/4xl font-semibold text-primary', titleClass)}>
 		{title}
 	</h2>

@@ -8,7 +8,10 @@
 </script>
 
 <div
-	class={cn('rounded-3xl p-8 shadow-md transition-all duration-300 hover:scale-102', className)}
+	class={cn(
+		'rounded-3xl border bg-linear-to-br from-primary-50/50 to-surface p-8 text-faded shadow-lg transition-all duration-300 hover:scale-102 dark:from-primary-950/15',
+		className
+	)}
 	{...rest}
 >
 	{@render children?.()}

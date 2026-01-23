@@ -19,7 +19,13 @@
 	}
 </script>
 
-<Button variant="primary" size="icon" onclick={handleClick} class="fixed bottom-3 left-3 z-50">
+<Button
+	variant="primary"
+	size="icon"
+	aria-label="Switch theme"
+	onclick={handleClick}
+	class="fixed bottom-3 left-3 z-50"
+>
 	{#if theme.theme === 'dark'}
 		<MoonIcon />
 	{:else if theme.theme === 'light'}
