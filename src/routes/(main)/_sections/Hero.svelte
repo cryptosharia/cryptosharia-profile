@@ -55,7 +55,8 @@
 	}
 </script>
 
-<PageSection id="hero" class="bg-linear-to-br from-orange-50 to-white">
+<PageSection id="hero">
+	<!-- class="bg-linear-to-br from-primary-50 to-white dark:from-primary-950 dark:to-gray-950" -->
 	<div class="grid grid-cols-1 items-center fl-gap-6/12 md:grid-cols-2">
 		<div class="md:order-2">
 			<!-- Floating layer -->

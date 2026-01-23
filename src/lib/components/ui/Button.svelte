@@ -6,8 +6,8 @@
 	type Props = (HTMLButtonAttributes | HTMLAnchorAttributes) & {
 		class?: string;
 		href?: string;
-		variant?: 'primary' | 'secondary' | 'text';
-		size?: 'md' | 'sm';
+		variant?: 'primary' | 'secondary' | 'blank';
+		size?: 'md' | 'sm' | 'icon' | 'text';
 		rounded?: boolean;
 		prefixIcon?: Component;
 		suffixIcon?: Component;
@@ -33,7 +33,9 @@
 
 	const sizes = $derived({
 		sm: `h-10 px-4 text-sm gap-1.5 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
-		md: `h-12 px-6 text-base gap-2 ${rounded ? 'rounded-full' : 'rounded-xl'}`
+		md: `h-12 px-6 text-base gap-2 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		icon: `h-12 w-12 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		text: ''
 	});
 
 	const variants = {
@@ -42,16 +44,12 @@
 			/*tw*/ 'border-2 border-primary text-primary bg-transparent',
 			/*tw*/ 'hover:bg-primary/5'
 		],
-		text: /*tw*/ 'text-foreground hover:text-primary'
+		blank: ''
 	};
 
-	const isTextButton = $derived(variant === 'text');
+	const mergedClass = $derived(cn(base, sizes[size], variants[variant], className));
 
-	const mergedClass = $derived(
-		cn(base, !isTextButton && sizes[size], variants[variant], className)
-	);
-
-	const iconSize = $derived(size === 'sm' ? 18 : 20);
+	const iconSize = $derived(size === 'sm' ? 18 : size === 'icon' ? 22 : 20);
 </script>
 
 <svelte:element this={href ? 'a' : 'button'} {href} class={mergedClass} {...rest}>

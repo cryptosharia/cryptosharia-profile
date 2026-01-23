@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import logo1 from '$lib/assets/logo1.png';
 	import { resolve } from '$app/paths';
+	import { cn } from '$lib/utils';
 	import Button from '$lib/components/ui/Button.svelte';
 
 	type Link = {
@@ -46,7 +47,8 @@
 		</Button>
 	{:else}
 		<Button
-			variant="text"
+			variant="blank"
+			size="text"
 			href={link.href}
 			onclick={closeDrawer}
 			class={cn(
@@ -87,7 +89,8 @@
 
 		<!-- Mobile Hamburger -->
 		<Button
-			variant="text"
+			variant="blank"
+			size="text"
 			class="relative flex size-10 flex-col items-center justify-center gap-y-1.5 hover:bg-primary/10 md:hidden"
 			onclick={() => (isDrawerOpen = !isDrawerOpen)}
 			aria-expanded={isDrawerOpen}

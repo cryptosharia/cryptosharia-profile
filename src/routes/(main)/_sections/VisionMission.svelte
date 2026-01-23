@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PageSection from '$lib/components/PageSection.svelte';
+	import Card from '$lib/components/ui/Card.svelte';
 	import { Eye, Target } from '@lucide/svelte';
 
 	const cards = [
@@ -10,7 +11,7 @@
 			Icon: Eye,
 			iconClass: 'bg-purple-600 text-white',
 			titleClass: 'text-purple-600',
-			bgClass: 'bg-linear-to-br from-purple-50 to-white'
+			bgClass: 'bg-linear-to-br from-purple-50 to-background dark:from-purple-950/60 border'
 		},
 		{
 			title: 'Misi',
@@ -19,7 +20,7 @@
 			Icon: Target,
 			iconClass: 'bg-blue-600 text-white',
 			titleClass: 'text-blue-600',
-			bgClass: 'bg-linear-to-br from-blue-50 to-white'
+			bgClass: 'bg-linear-to-br from-blue-50 to-background dark:from-blue-950/60 border'
 		}
 	];
 </script>
@@ -27,9 +28,7 @@
 <PageSection id="vision-mission">
 	<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:fl-gap-3/6">
 		{#each cards as card (card.title)}
-			<div
-				class="{card.bgClass} relative overflow-hidden rounded-3xl p-8 shadow-md transition-all duration-300 hover:scale-102"
-			>
+			<Card class={card.bgClass}>
 				<div class="mb-6 flex items-center gap-4">
 					<div class="{card.iconClass} flex size-12 items-center justify-center rounded-full">
 						<card.Icon size={26} />
@@ -39,7 +38,7 @@
 				<p class="text-lg leading-relaxed">
 					{card.content}
 				</p>
-			</div>
+			</Card>
 		{/each}
 	</div>
 </PageSection>

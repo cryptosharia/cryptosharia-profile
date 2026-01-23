@@ -4,6 +4,8 @@
 @import 'tailwindcss';
 @plugin 'fluid-tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--font-sans: 'Google Sans Flex', ui-sans-serif, sans-serif;
 	--font-serif: 'Arvo', ui-serif, serif;
@@ -29,22 +31,30 @@
 	--color-primary-900: var(--color-orange-900);
 	--color-primary-950: var(--color-orange-950);
 
-	/* Aliases */
 	--color-primary: var(--color-primary-600);
-	--color-primary-light: var(--color-primary-100);
-	--color-primary-dark: var(--color-primary-900);
 	--color-on-primary: var(--color-white);
+}
+
+.dark {
+	--color-background: var(--color-gray-950);
+	--color-surface: var(--color-gray-900);
+
+	--color-foreground: var(--color-gray-300);
+	--color-faded: var(--color-gray-500);
+
+	--color-line: var(--color-gray-600);
+	--color-shade: var(--color-gray-900);
 }
 
 @layer base {
 	/* Specify global inheritted styles */
 	html {
-		@apply font-sans text-foreground scheme-light;
+		@apply font-sans text-foreground;
 	}
 
 	/* Specify body styles (not inheritted) */
 	body {
-		@apply bg-background;
+		@apply bg-linear-to-br from-primary-50 to-background transition-colors duration-300 dark:from-primary-950/25;
 	}
 
 	/* Specify base styles for all elements */
