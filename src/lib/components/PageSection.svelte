@@ -8,7 +8,7 @@
 </script>
 
 <section class={cn('', className)} {...rest}>
-	<div class="mx-auto max-w-7xl fl-px-4/12">
+	<div class="mx-auto max-w-7xl fl-px-4/6">
 		{@render children?.()}
 	</div>
 </section>

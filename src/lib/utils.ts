@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,4 +9,28 @@ import { twMerge } from 'tailwind-merge';
  */
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
+}
+
+/**
+ * Returns the current breakpoint based on the window width.
+ * - 1 = xs
+ * - 2 = sm
+ * - 3 = md
+ * - 4 = lg
+ * - 5 = xl
+ * - 6 = 2xl
+ */
+export function getCurrentBreakpoint() {
+	if (!browser) {
+		throw new Error('getCurrentBreakpoint() must be used in a client-side environment');
+	}
+
+	const width = window.innerWidth;
+
+	if (width >= 1536) return 6;
+	if (width >= 1280) return 5;
+	if (width >= 1024) return 4;
+	if (width >= 768) return 3;
+	if (width >= 640) return 2;
+	return 1;
 }

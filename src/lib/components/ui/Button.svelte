@@ -7,7 +7,7 @@
 		class?: string;
 		href?: string;
 		variant?: 'primary' | 'secondary' | 'text';
-		size?: 'medium' | 'sm';
+		size?: 'md' | 'sm';
 		rounded?: boolean;
 		prefixIcon?: Component;
 		suffixIcon?: Component;
@@ -19,7 +19,7 @@
 		children,
 		href,
 		variant = 'primary',
-		size = 'medium',
+		size = 'md',
 		rounded = false,
 		prefixIcon: PrefixIcon,
 		suffixIcon: SuffixIcon,
@@ -32,8 +32,8 @@
 	]);
 
 	const sizes = $derived({
-		medium: `h-12 px-6 text-base gap-2 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
-		sm: `h-10 px-4 text-sm gap-1.5 ${rounded ? 'rounded-full' : 'rounded-lg'}`
+		sm: `h-10 px-4 text-sm gap-1.5 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
+		md: `h-12 px-6 text-base gap-2 ${rounded ? 'rounded-full' : 'rounded-xl'}`
 	});
 
 	const variants = {

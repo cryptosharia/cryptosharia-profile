@@ -3,9 +3,20 @@
 	import PageSection from '$lib/components/PageSection.svelte';
 	import logo2 from '$lib/assets/logo2.png';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { streamBreakpoint } from '$lib/runes.svelte';
+
+	const breakpoint = streamBreakpoint();
+
+	const buttonSize = $derived.by(() => {
+		if (breakpoint.value >= 4 || breakpoint.value == 2) {
+			return 'md';
+		} else {
+			return 'sm';
+		}
+	});
 </script>
 
-<PageSection class="bg-linear-to-br from-orange-50 to-white py-15">
+<PageSection id="hero" class="bg-linear-to-br from-orange-50 to-white py-15">
 	<div class="grid grid-cols-1 items-center fl-gap-6/12 md:grid-cols-2">
 		<div class="md:order-2">
 			<img alt="CryptoSharia Logo" src={logo2} class="mx-auto fl-w-60/80" />
@@ -23,16 +34,16 @@
 					memahami dan memanfaatkan teknologi crypto secara bertanggung jawab.
 				</p>
 			</div>
-			<div class="flex gap-4">
+			<div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
 				<Button
-					size="medium"
+					size={buttonSize}
 					suffixIcon={ExternalLinkIcon}
 					href="https://media.cryptosharia.id"
 					target="_blank"
 				>
 					Kunjungi Media Kami
 				</Button>
-				<Button size="medium" variant="secondary" href="/#contact">Hubungi Kami</Button>
+				<Button size={buttonSize} variant="secondary" href="/#contact">Hubungi Kami</Button>
 			</div>
 		</div>
 	</div>
