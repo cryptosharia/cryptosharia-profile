@@ -24,7 +24,7 @@
 	];
 </script>
 
-<PageSection id="vision-mission" class="py-15">
+<PageSection id="vision-mission">
 	<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:fl-gap-3/6">
 		{#each cards as card (card.title)}
 			<div
@@ -36,7 +36,7 @@
 					</div>
 					<h2 class="{card.titleClass} font-serif text-2xl font-bold">{card.title}</h2>
 				</div>
-				<p class="text-lg leading-relaxed text-faded">
+				<p class="text-lg leading-relaxed">
 					{card.content}
 				</p>
 			</div>

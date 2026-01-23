@@ -7,7 +7,7 @@
 	let { class: className, children, ...rest }: Props = $props();
 </script>
 
-<section class={cn('', className)} {...rest}>
+<section class={cn('fl-py-10/16', className)} {...rest}>
 	<div class="mx-auto max-w-7xl fl-px-4/6">
 		{@render children?.()}
 	</div>

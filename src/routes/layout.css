@@ -11,8 +11,8 @@
 	--color-background: var(--color-white);
 	--color-surface: var(--color-white);
 
-	--color-foreground: var(--color-gray-700);
-	--color-faded: var(--color-gray-600);
+	--color-foreground: var(--color-gray-600);
+	--color-faded: var(--color-gray-400);
 
 	--color-line: var(--color-gray-200);
 	--color-shade: var(--color-gray-300);
