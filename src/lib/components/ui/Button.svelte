@@ -11,7 +11,7 @@
 		children?: Snippet;
 	};
 
-	let {
+	const {
 		class: className,
 		children,
 		href,
@@ -38,7 +38,7 @@
 		text: /*tw*/ 'text-foreground hover:text-primary'
 	};
 
-	let mergedClass = $derived(cn(base, variants[variant], className));
+	const mergedClass = $derived(cn(base, variants[variant], className));
 </script>
 
 <svelte:element this={href ? 'a' : 'button'} {href} class={mergedClass} {...rest}>
