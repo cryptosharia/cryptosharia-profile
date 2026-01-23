@@ -15,7 +15,7 @@
 	--color-faded: var(--color-gray-600);
 
 	--color-line: var(--color-gray-200);
-	--color-shade: var(--color-gray-400);
+	--color-shade: var(--color-gray-300);
 
 	--color-primary-50: var(--color-orange-50);
 	--color-primary-100: var(--color-orange-100);
@@ -39,7 +39,7 @@
 @layer base {
 	/* Specify global inheritted styles */
 	html {
-		@apply font-sans text-foreground;
+		@apply font-sans text-foreground scheme-light;
 	}
 
 	/* Specify body styles (not inheritted) */
