@@ -21,7 +21,7 @@
 	{@render children()}
 
 	{#if description}
-		<p class="text-muted-foreground text-xs">
+		<p class="text-xs text-faded">
 			{description}
 		</p>
 	{/if}

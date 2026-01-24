@@ -38,7 +38,7 @@
 		sm: `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
 		md: `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
 		'icon-md': `size-12 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
-		'icon-sm': `size-9 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
+		'icon-sm': `size-8 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
 		text: 'active:scale-95'
 	});
 

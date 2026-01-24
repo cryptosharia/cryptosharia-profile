@@ -12,6 +12,8 @@
 	import lisaImg from '$lib/assets/chro_lisa.png';
 	import charlieImg from '$lib/assets/hor_charlie.avif';
 	import davidImg from '$lib/assets/cmo_david.jpeg';
+	import robertImg from '$lib/assets/vpp_robert.avif';
+	import aminahImg from '$lib/assets/cso_aminah.png';
 
 	const contributors = [
 		{
@@ -32,6 +34,16 @@
 				{ icon: Mail, href: 'mailto:sarah@example.com' },
 				{ icon: Linkedin, href: '#' },
 				{ icon: Github, href: '#' }
+			]
+		},
+		{
+			name: 'David White',
+			role: 'Chief Marketing Officer',
+			image: davidImg,
+			links: [
+				{ icon: Mail, href: 'mailto:david@example.com' },
+				{ icon: Linkedin, href: '#' },
+				{ icon: Instagram, href: '#' }
 			]
 		},
 		{
@@ -74,6 +86,26 @@
 			]
 		},
 		{
+			name: 'Aminah Al-Farsi',
+			role: 'Chief Shariah Officer',
+			image: aminahImg,
+			links: [
+				{ icon: Mail, href: 'mailto:aminah@example.com' },
+				{ icon: Linkedin, href: '#' },
+				{ icon: Globe, href: '#' }
+			]
+		},
+		{
+			name: 'Robert Tanaka',
+			role: 'VP of Product',
+			image: robertImg,
+			links: [
+				{ icon: Mail, href: 'mailto:robert@example.com' },
+				{ icon: Linkedin, href: '#' },
+				{ icon: Github, href: '#' }
+			]
+		},
+		{
 			name: 'Lisa Thompson',
 			role: 'Chief Human Resources Officer',
 			image: lisaImg,
@@ -81,16 +113,6 @@
 				{ icon: Mail, href: 'mailto:lisa@example.com' },
 				{ icon: Instagram, href: '#' },
 				{ icon: Twitter, href: '#' }
-			]
-		},
-		{
-			name: 'David White',
-			role: 'Chief Marketing Officer',
-			image: davidImg,
-			links: [
-				{ icon: Mail, href: 'mailto:david@example.com' },
-				{ icon: Linkedin, href: '#' },
-				{ icon: Instagram, href: '#' }
 			]
 		}
 	];
@@ -102,7 +124,7 @@
 		subtitle="Kenali tim profesional berpengalaman di balik organisasi kami"
 	/>
 
-	<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+	<div class="grid grid-cols-2 fl-gap-3/6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 		{#each contributors as member (member.name)}
 			<Card
 				direction="tl"
@@ -115,18 +137,18 @@
 						class="size-full object-cover transition-transform hover:scale-105"
 					/>
 				</div>
-				<div class="flex flex-col p-6 text-left">
+				<div class="flex flex-col p-3 text-left">
 					<h3
-						class="text-xl font-semibold text-foreground underline-offset-2 group-hover:underline"
+						class="line-clamp-1 fl-text-base/lg font-semibold text-foreground underline-offset-2 group-hover:underline"
 					>
 						{member.name}
 					</h3>
-					<p class="mb-4 text-sm font-medium text-primary">{member.role}</p>
+					<p class="mb-3 line-clamp-1 text-xs font-medium text-primary sm:text-sm">{member.role}</p>
 
-					<div class="mt-auto flex gap-3">
-						{#each member.links as link (link.icon)}
+					<div class="flex gap-2">
+						{#each member.links.slice(0, 3) as link (link.icon)}
 							<Button variant="soft" size="icon-sm" href={link.href} target="_blank">
-								<link.icon size={18} />
+								<link.icon size={16} />
 							</Button>
 						{/each}
 					</div>
