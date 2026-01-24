@@ -6,7 +6,7 @@
 	type Props = (HTMLButtonAttributes | HTMLAnchorAttributes) & {
 		class?: string;
 		href?: string;
-		variant?: 'solid' | 'outline' | 'blank' | 'soft' | 'link' | 'ghost';
+		variant?: 'solid' | 'outline' | 'blank' | 'soft' | 'link' | 'ghost' | 'link-ghost';
 		size?: 'md' | 'sm' | 'icon-md' | 'icon-sm' | 'text';
 		rounded?: boolean;
 		pointerEvents?: boolean;
@@ -56,6 +56,10 @@
 		ghost: [
 			/*tw*/ 'bg-foreground/5 text-foreground/75 shadow-none',
 			/*tw*/ 'hover:bg-primary hover:text-on-primary'
+		],
+		'link-ghost': [
+			/*tw*/ 'text-faded decoration-faded hover:text-primary hover:underline underline-offset-4',
+			/*tw*/ 'bg-transparent shadow-none'
 		],
 		blank: ''
 	};
