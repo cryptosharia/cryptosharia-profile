@@ -3,25 +3,15 @@
 	import { MoonIcon, SunIcon, SunMoonIcon, EllipsisIcon } from '@lucide/svelte';
 	import { useTheme } from 'svelte-themes';
 	import { browser } from '$app/environment';
-	import { getViewportHeight, getPageHeight, cn } from '$lib/utils';
+	import { cn } from '$lib/utils';
+	import { streamPageScroll } from '$lib/runes.svelte';
 
 	const theme = useTheme();
-
-	let scrollY = $state(0);
+	const scrollState = streamPageScroll();
 
 	const isAtTopOrBottom = $derived.by(() => {
 		if (!browser) return true;
-
-		const viewportHeight = getViewportHeight();
-		const pageHeight = getPageHeight();
-
-		// Hide if at top (allow 10px buffer)
-		if (scrollY < 10) return true;
-
-		// Hide if at bottom (allow 10px buffer)
-		if (scrollY + viewportHeight >= pageHeight - 10) return true;
-
-		return false;
+		return scrollState.isAtTop || scrollState.isAtBottom;
 	});
 
 	function handleClick() {
@@ -38,13 +28,12 @@
 	}
 </script>
 
-<svelte:window bind:scrollY />
-
 <Button
 	variant="solid"
 	size="icon-md"
 	aria-label="Switch theme"
 	onclick={handleClick}
+	rounded
 	class={cn(
 		'fixed bottom-3 left-3 z-50 transition-all duration-500',
 		isAtTopOrBottom ? '-translate-x-15 opacity-0' : 'translate-x-0 opacity-100'

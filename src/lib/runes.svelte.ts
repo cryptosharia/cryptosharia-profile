@@ -32,3 +32,56 @@ export function streamBreakpoint() {
 		}
 	};
 }
+
+/**
+ * Returns a reactive scroll state that updates on window scroll.
+ * Provides `.y` (scrollY), `.isAtTop`, and `.isAtBottom`.
+ */
+export function streamPageScroll() {
+	// Default for SSR
+	let scrollY = $state(0);
+	let viewportHeight = $state(0);
+	let pageHeight = $state(0);
+
+	// Derived state for position checks
+	const isAtTop = $derived(scrollY < 10);
+	const isAtBottom = $derived(scrollY + viewportHeight >= pageHeight - 10);
+
+	function updateHeight() {
+		viewportHeight = window.innerHeight;
+		pageHeight = document.documentElement.scrollHeight;
+	}
+
+	function handleScroll() {
+		scrollY = window.scrollY;
+		// Update heights on scroll too, in case of dynamic content resizing
+		updateHeight();
+	}
+
+	onMount(() => {
+		updateHeight();
+		handleScroll(); // Initial check
+
+		// 'passive: true' tells the browser we won't call preventDefault(),
+		// allowing the scrolling to remain smooth while our logic runs.
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		window.addEventListener('resize', updateHeight);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('resize', updateHeight);
+		};
+	});
+
+	return {
+		get y() {
+			return scrollY;
+		},
+		get isAtTop() {
+			return isAtTop;
+		},
+		get isAtBottom() {
+			return isAtBottom;
+		}
+	};
+}
