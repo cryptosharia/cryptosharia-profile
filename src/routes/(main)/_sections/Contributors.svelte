@@ -48,15 +48,6 @@
 			]
 		},
 		{
-			name: 'Michael Chen',
-			role: 'Chief Operations Officer',
-			image: michaelImg,
-			links: [
-				{ icon: Mail, href: 'mailto:michael@example.com' },
-				{ icon: Instagram, href: '#' }
-			]
-		},
-		{
 			name: 'Emily Johnson',
 			role: 'Chief Financial Officer',
 			image: emilyImg,
@@ -66,14 +57,22 @@
 			]
 		},
 		{
-			name: 'Daffa Ilhami',
-			role: 'Fullstack & Lead Developer',
-			image: daffaImg,
+			name: 'Michael Chen',
+			role: 'Chief Operations Officer',
+			image: michaelImg,
 			links: [
-				{ icon: Globe, href: 'https://mdaffailhami.my.id' },
-				{ icon: Linkedin, href: 'https://linkedin.com/in/mdaffailhami' },
-				{ icon: Github, href: 'https://github.com/mdaffailhami' },
-				{ icon: Mail, href: 'mailto:mdaffailhami@gmail.com' }
+				{ icon: Mail, href: 'mailto:michael@example.com' },
+				{ icon: Instagram, href: '#' }
+			]
+		},
+		{
+			name: 'Aminah Al-Farsi',
+			role: 'Chief Shariah Officer',
+			image: aminahImg,
+			links: [
+				{ icon: Mail, href: 'mailto:aminah@example.com' },
+				{ icon: Linkedin, href: '#' },
+				{ icon: Globe, href: '#' }
 			]
 		},
 		{
@@ -87,13 +86,14 @@
 			]
 		},
 		{
-			name: 'Aminah Al-Farsi',
-			role: 'Chief Shariah Officer',
-			image: aminahImg,
+			name: 'Daffa Ilhami',
+			role: 'Fullstack Lead Developer',
+			image: daffaImg,
 			links: [
-				{ icon: Mail, href: 'mailto:aminah@example.com' },
-				{ icon: Linkedin, href: '#' },
-				{ icon: Globe, href: '#' }
+				{ icon: Globe, href: 'https://mdaffailhami.my.id' },
+				{ icon: Linkedin, href: 'https://linkedin.com/in/mdaffailhami' },
+				{ icon: Github, href: 'https://github.com/mdaffailhami' },
+				{ icon: Mail, href: 'mailto:mdaffailhami@gmail.com' }
 			]
 		},
 		{
@@ -130,7 +130,7 @@
 			<Card
 				direction="tl"
 				class={cn(
-					'group flex cursor-pointer flex-col overflow-hidden bg-surface p-0 transition-all',
+					'group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-surface p-0 transition-all',
 					// xs (Mobile): Shows 10 contributors (2 columns).
 					// sm (Tablet): Shows 9 contributors (3 columns) — Hides the 10th item.
 					// lg (Laptop): Shows 8 contributors (4 columns) — Hides the 9th and 10th items.
@@ -146,7 +146,7 @@
 						class="size-full object-cover transition-transform hover:scale-105"
 					/>
 				</div>
-				<div class="flex flex-col p-3 text-left">
+				<div class="p-3">
 					<h3
 						class="line-clamp-1 fl-text-base/lg font-semibold text-foreground underline-offset-2 group-hover:underline"
 					>
@@ -156,7 +156,7 @@
 
 					<div class="flex gap-2">
 						{#each member.links.slice(0, 3) as link (link.icon)}
-							<Button variant="soft" size="icon-sm" href={link.href} target="_blank">
+							<Button variant="ghost" size="icon-sm" href={link.href} target="_blank" rounded>
 								<link.icon size={16} />
 							</Button>
 						{/each}

@@ -54,7 +54,7 @@
 							<info.icon size={24} />
 						</Button>
 						<div>
-							<h4 class="text-lg font-bold text-foreground">{info.title}</h4>
+							<h4 class="text-lg font-semibold text-foreground">{info.title}</h4>
 							<Button
 								variant="blank"
 								size="text"
