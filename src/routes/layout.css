@@ -51,23 +51,31 @@
 @layer base {
 	/* Specify global inheritted styles */
 	html {
-		@apply font-sans text-foreground;
+		@apply scroll-smooth font-sans text-foreground;
 	}
 
 	/* Specify body styles (not inheritted) */
 	body {
-		@apply bg-linear-to-br from-primary-50 to-background transition-colors dark:from-primary-950/25;
+		@apply gradient-background transition-colors;
 	}
 
 	/* Specify base styles for all elements */
 	*,
 	::before,
 	::after {
-		@apply border-line shadow-shade outline-primary-400;
+		@apply border-line shadow-shade;
 	}
 
 	/* Custom selection styles */
 	::selection {
 		@apply bg-primary text-on-primary;
 	}
+}
+
+@utility gradient-background {
+	@apply bg-linear-to-br from-primary-50/50 to-background dark:from-primary-950/15;
+}
+
+@utility gradient-surface {
+	@apply from-primary-50/50 to-surface dark:from-primary-950/15;
 }

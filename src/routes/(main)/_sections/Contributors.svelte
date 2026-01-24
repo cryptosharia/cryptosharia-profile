@@ -125,7 +125,7 @@
 
 					<div class="mt-auto flex gap-3">
 						{#each member.links as link (link.icon)}
-							<Button variant="soft" size="icon-sm" href={link.href}>
+							<Button variant="soft" size="icon-sm" href={link.href} target="_blank">
 								<link.icon size={18} />
 							</Button>
 						{/each}

@@ -3,6 +3,7 @@
 	import VisionMission from './_sections/VisionMission.svelte';
 	import Principles from './_sections/Principles.svelte';
 	import Contributors from './_sections/Contributors.svelte';
+	import Contact from './_sections/Contact.svelte';
 </script>
 
 <main>
@@ -10,4 +11,5 @@
 	<VisionMission />
 	<Principles />
 	<Contributors />
+	<Contact />
 </main>

@@ -6,9 +6,10 @@
 	type Props = (HTMLButtonAttributes | HTMLAnchorAttributes) & {
 		class?: string;
 		href?: string;
-		variant?: 'solid' | 'outline' | 'blank' | 'soft';
+		variant?: 'solid' | 'outline' | 'blank' | 'soft' | 'link';
 		size?: 'md' | 'sm' | 'icon-md' | 'icon-sm' | 'text';
 		rounded?: boolean;
+		pointerEvents?: boolean;
 		prefixIcon?: Component;
 		suffixIcon?: Component;
 		children?: Snippet;
@@ -21,14 +22,16 @@
 		variant = 'solid',
 		size = 'md',
 		rounded = false,
+		pointerEvents = true,
 		prefixIcon: PrefixIcon,
 		suffixIcon: SuffixIcon,
 		...rest
 	}: Props = $props();
 
 	const base = $derived([
-		/*tw*/ 'inline-flex items-center justify-center whitespace-nowrap font-medium transition-all',
-		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none'
+		/*tw*/ 'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-medium transition-all',
+		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none',
+		!pointerEvents && 'pointer-events-none'
 	]);
 
 	const sizes = $derived({
@@ -36,7 +39,7 @@
 		md: `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
 		'icon-md': `size-12 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
 		'icon-sm': `size-9 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
-		text: ''
+		text: 'active:scale-95'
 	});
 
 	const variants = {
@@ -46,6 +49,10 @@
 			/*tw*/ 'hover:bg-primary/5'
 		],
 		soft: [/*tw*/ 'bg-primary/5 text-primary', /*tw*/ 'hover:bg-primary hover:text-on-primary'],
+		link: [
+			/*tw*/ 'text-primary hover:underline underline-offset-4',
+			/*tw*/ 'bg-transparent shadow-none'
+		],
 		blank: ''
 	};
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PageSection from '$lib/components/PageSection.svelte';
+	import Button from '$lib/components/ui/Button.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import { Eye, Target } from '@lucide/svelte';
 
@@ -30,9 +31,15 @@
 		{#each cards as card (card.title)}
 			<Card class="{card.bgClass} text-foreground">
 				<div class="mb-6 flex items-center gap-4">
-					<div class="{card.iconClass} flex size-12 items-center justify-center rounded-full">
-						<card.Icon size={26} />
-					</div>
+					<Button
+						variant="blank"
+						size="icon-md"
+						rounded
+						pointerEvents={false}
+						class={card.iconClass}
+					>
+						<card.Icon size={24} />
+					</Button>
 					<h2 class="{card.titleClass} font-serif text-2xl font-bold">{card.title}</h2>
 				</div>
 				<p class="text-lg leading-relaxed">

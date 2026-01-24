@@ -24,7 +24,7 @@
 
 <div
 	class={cn(
-		'rounded-3xl border from-primary-50/50 to-surface p-8 text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg dark:from-primary-950/15',
+		'rounded-3xl border gradient-surface p-8 text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg',
 		directionMap[direction],
 		className
 	)}
