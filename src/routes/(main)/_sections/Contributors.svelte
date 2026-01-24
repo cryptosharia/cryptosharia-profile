@@ -3,6 +3,7 @@
 	import PageSectionHeader from '$lib/components/PageSectionHeader.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { cn } from '$lib/utils';
 	import { Mail, Linkedin, Github, Globe, Instagram, Twitter, Cloud } from '@lucide/svelte';
 	import johnImg from '$lib/assets/ceo_john.png';
 	import sarahImg from '$lib/assets/cto_sarah.avif';
@@ -125,10 +126,18 @@
 	/>
 
 	<div class="grid grid-cols-2 fl-gap-3/6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-		{#each contributors as member (member.name)}
+		{#each contributors as member, i (member.name)}
 			<Card
 				direction="tl"
-				class="group flex cursor-pointer flex-col overflow-hidden bg-surface p-0 transition-all"
+				class={cn(
+					'group flex cursor-pointer flex-col overflow-hidden bg-surface p-0 transition-all',
+					// xs (Mobile): Shows 10 contributors (2 columns).
+					// sm (Tablet): Shows 9 contributors (3 columns) — Hides the 10th item.
+					// lg (Laptop): Shows 8 contributors (4 columns) — Hides the 9th and 10th items.
+					// xl (Desktop): Shows 10 contributors (5 columns) — Shows everything.
+					i === 8 && 'lg:max-xl:hidden',
+					i === 9 && 'sm:max-xl:hidden'
+				)}
 			>
 				<div class="aspect-square w-full overflow-hidden">
 					<img
