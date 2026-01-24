@@ -45,7 +45,7 @@
 	--color-faded: var(--color-gray-500);
 
 	--color-line: var(--color-gray-600);
-	--color-shade: rgba(255, 255, 255, 0.1);
+	--color-shade: rgba(255, 255, 255, 0.05);
 }
 
 @layer base {

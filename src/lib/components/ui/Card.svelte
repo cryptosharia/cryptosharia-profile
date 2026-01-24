@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
 
 	type GradientDirection = 't' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl';
 
@@ -15,20 +15,25 @@
 		tl: 'bg-linear-to-tl'
 	};
 
-	type Props = HTMLAttributes<HTMLDivElement> & {
+	type Props = (HTMLAttributes<HTMLDivElement> | HTMLAnchorAttributes) & {
 		direction?: GradientDirection;
+		href?: string;
 	};
 
-	let { class: className, direction = 'br', children, ...rest }: Props = $props();
+	let { class: className, direction = 'br', children, href, ...rest }: Props = $props();
+
+	const tag = $derived(href ? 'a' : 'div');
 </script>
 
-<div
+<svelte:element
+	this={tag}
+	{href}
 	class={cn(
-		'rounded-3xl border gradient-surface p-8 text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg',
+		'rounded-3xl border gradient-surface text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg',
 		directionMap[direction],
 		className
 	)}
 	{...rest}
 >
 	{@render children?.()}
-</div>
+</svelte:element>

@@ -54,7 +54,7 @@
 	<div class="grid grid-cols-1 fl-gap-3/6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each principles as principle (principle.title)}
 			{@const textColor = principle.class.split(' ').find((c) => c.startsWith('text-'))}
-			<Card class="flex flex-col items-start gap-4">
+			<Card class="flex flex-col items-start gap-4 p-8">
 				<div class="flex items-center gap-2">
 					<Button
 						variant="blank"

@@ -4,6 +4,7 @@
 	import { useTheme } from 'svelte-themes';
 	import { cn } from '$lib/utils';
 	import { streamPageScroll } from '$lib/runes.svelte';
+	import { scale } from 'svelte/transition';
 
 	const theme = useTheme();
 	const pageScroll = streamPageScroll();
@@ -33,16 +34,31 @@
 	onclick={handleClick}
 	rounded
 	class={cn(
-		'fixed bottom-3 left-3 z-50 transition-all duration-500',
+		'fixed bottom-3 left-3 z-50 duration-500',
 		isAtTopOrBottom ? '-translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
 	)}
 >
 	{#if theme.theme === 'dark'}
-		<MoonIcon />
+		<div
+			transition:scale={{ duration: 300, start: 0 }}
+			class="absolute inset-0 grid place-items-center"
+		>
+			<MoonIcon />
+		</div>
 	{:else if theme.theme === 'light'}
-		<SunIcon />
+		<div
+			transition:scale={{ duration: 300, start: 0 }}
+			class="absolute inset-0 grid place-items-center"
+		>
+			<SunIcon />
+		</div>
 	{:else if theme.theme === 'system'}
-		<SunMoonIcon />
+		<div
+			transition:scale={{ duration: 300, start: 0 }}
+			class="absolute inset-0 grid place-items-center"
+		>
+			<SunMoonIcon />
+		</div>
 	{:else}
 		<EllipsisIcon />
 	{/if}

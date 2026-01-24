@@ -29,7 +29,7 @@
 <PageSection id="vision-mission">
 	<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:fl-gap-3/6">
 		{#each cards as card (card.title)}
-			<Card class="{card.bgClass} text-foreground">
+			<Card class="{card.bgClass} p-8 text-foreground">
 				<div class="mb-6 flex items-center gap-4">
 					<Button
 						variant="blank"

@@ -69,7 +69,7 @@
 		</div>
 
 		<!-- Right: Contact Form -->
-		<Card>
+		<Card class="p-8">
 			<form onsubmit={(e) => e.preventDefault()} class="space-y-6">
 				<Field label="Nama Lengkap" forId="name">
 					<InputField id="name" placeholder="Nama Anda" />
