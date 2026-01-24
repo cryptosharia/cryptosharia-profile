@@ -1,6 +1,5 @@
 <script lang="ts">
 	import PageSection from '$lib/components/PageSection.svelte';
-	import PageSectionHeader from '$lib/components/PageSectionHeader.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { cn } from '$lib/utils';
@@ -119,12 +118,11 @@
 	];
 </script>
 
-<PageSection id="contributors">
-	<PageSectionHeader
-		title="Siapa Kami?"
-		subtitle="Kenali tim profesional berpengalaman di balik organisasi kami"
-	/>
-
+<PageSection
+	id="contributors"
+	title="Siapa Kami?"
+	subtitle="Kenali tim profesional berpengalaman di balik organisasi kami"
+>
 	<div class="grid grid-cols-2 fl-gap-3/6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 		{#each contributors as member, i (member.name)}
 			<Card

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import PageSection from '$lib/components/PageSection.svelte';
-	import PageSectionHeader from '$lib/components/PageSectionHeader.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { Heart, Users, Lightbulb, Award, Shield, Rocket } from '@lucide/svelte';
@@ -47,12 +46,11 @@
 	];
 </script>
 
-<PageSection id="principles">
-	<PageSectionHeader
-		title="Prinsip Kami"
-		subtitle="Prinsip-prinsip yang memandu setiap langkah kami dalam membangun ekosistem crypto syariah"
-	/>
-
+<PageSection
+	id="principles"
+	title="Prinsip Kami"
+	subtitle="Prinsip-prinsip yang memandu setiap langkah kami dalam membangun ekosistem crypto syariah"
+>
 	<div class="grid grid-cols-1 fl-gap-3/6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each principles as principle (principle.title)}
 			{@const textColor = principle.class.split(' ').find((c) => c.startsWith('text-'))}

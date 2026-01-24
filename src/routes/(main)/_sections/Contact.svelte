@@ -1,6 +1,5 @@
 <script lang="ts">
 	import PageSection from '$lib/components/PageSection.svelte';
-	import PageSectionHeader from '$lib/components/PageSectionHeader.svelte';
 	import Field from '$lib/components/ui/Field.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
@@ -29,13 +28,12 @@
 	];
 </script>
 
-<PageSection id="contact">
-	<PageSectionHeader
-		title="Hubungi Kami"
-		subtitle="Punya pertanyaan? Kami siap membantu Anda. Kirim pesan dan kami akan merespons secepat mungkin."
-		class="mb-20"
-	/>
-
+<PageSection
+	id="contact"
+	title="Hubungi Kami"
+	subtitle="Punya pertanyaan? Kami siap membantu Anda. Kirim pesan dan kami akan merespons secepat mungkin."
+	headerClass="mb-20"
+>
 	<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
 		<!-- Left: Contact info -->
 		<div class="space-y-10">
