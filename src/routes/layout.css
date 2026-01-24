@@ -7,6 +7,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+	--default-transition-duration: 300ms;
+
 	--font-sans: 'Google Sans Flex', ui-sans-serif, sans-serif;
 	--font-serif: 'Arvo', ui-serif, serif;
 
@@ -54,7 +56,7 @@
 
 	/* Specify body styles (not inheritted) */
 	body {
-		@apply bg-linear-to-br from-primary-50 to-background transition-colors duration-300 dark:from-primary-950/25;
+		@apply bg-linear-to-br from-primary-50 to-background transition-colors dark:from-primary-950/25;
 	}
 
 	/* Specify base styles for all elements */

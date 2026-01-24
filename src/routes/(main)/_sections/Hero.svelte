@@ -96,13 +96,14 @@
 			<div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
 				<Button
 					size={buttonSize}
+					variant="solid"
 					suffixIcon={ExternalLinkIcon}
 					href="https://media.cryptosharia.id"
 					target="_blank"
 				>
 					Kunjungi Media Kami
 				</Button>
-				<Button size={buttonSize} variant="secondary" href="/#contact">Hubungi Kami</Button>
+				<Button size={buttonSize} variant="outline" href="/#contact">Hubungi Kami</Button>
 			</div>
 		</div>
 	</div>

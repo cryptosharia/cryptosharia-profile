@@ -20,8 +20,8 @@
 </script>
 
 <Button
-	variant="primary"
-	size="icon"
+	variant="solid"
+	size="icon-md"
 	aria-label="Switch theme"
 	onclick={handleClick}
 	class="fixed bottom-3 left-3 z-50"
