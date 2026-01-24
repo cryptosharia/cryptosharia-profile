@@ -22,7 +22,7 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function getCurrentBreakpoint() {
 	if (!browser) {
-		throw new Error('getCurrentBreakpoint() must be used in a client-side environment');
+		throw new Error('getCurrentBreakpoint() must be used within a client-side environment');
 	}
 
 	const width = window.innerWidth;
@@ -33,4 +33,31 @@ export function getCurrentBreakpoint() {
 	if (width >= 768) return 3;
 	if (width >= 640) return 2;
 	return 1;
+}
+
+/**
+ * Gets the current viewport height.
+ */
+export function getViewportHeight() {
+	if (!browser) {
+		throw new Error('getViewportHeight() must be used within a client-side environment');
+	}
+	return window.innerHeight;
+}
+
+/**
+ * Gets the total height of the entire page document.
+ */
+export function getPageHeight() {
+	if (!browser) {
+		throw new Error('getPageHeight() must be used within a client-side environment');
+	}
+	return Math.max(
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.body.clientHeight,
+		document.documentElement.clientHeight
+	);
 }
