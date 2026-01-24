@@ -2,18 +2,26 @@ import { onMount } from 'svelte';
 import { getCurrentBreakpoint } from './utils';
 
 /**
- * Returns a reactive breakpoint value that updates on window resize.
- * - 1 = xs
- * - 2 = sm
- * - 3 = md
- * - 4 = lg
- * - 5 = xl
- * - 6 = 2xl
+ * Returns a reactive viewport state that updates on window resize.
+ * Provides `.width`, `.height`, and `.breakpoint` properties.
+ *
+ * Breakpoints:
+ * - 1 = xs (< 640px)
+ * - 2 = sm (>= 640px)
+ * - 3 = md (>= 768px)
+ * - 4 = lg (>= 1024px)
+ * - 5 = xl (>= 1280px)
+ * - 6 = 2xl (>= 1536px)
  */
-export function streamBreakpoint() {
-	let breakpoint: number = $state(1); // Default for SSR
+export function streamViewport() {
+	// Default for SSR
+	let width = $state(0);
+	let height = $state(0);
+	let breakpoint = $state(1);
 
 	function handleResize() {
+		width = window.innerWidth;
+		height = window.innerHeight;
 		breakpoint = getCurrentBreakpoint();
 	}
 
@@ -27,15 +35,21 @@ export function streamBreakpoint() {
 	});
 
 	return {
-		get value() {
+		get width() {
+			return width;
+		},
+		get height() {
+			return height;
+		},
+		get breakpoint() {
 			return breakpoint;
 		}
 	};
 }
 
 /**
- * Returns a reactive scroll state that updates on window scroll.
- * Provides `.y` (scrollY), `.isAtTop`, and `.isAtBottom`.
+ * Returns a reactive scroll state that updates on page scroll.
+ * Provides `.y` (scrollY), `.isAtTop`, `.isAtBottom`, and `.isScrolling`.
  */
 export function streamPageScroll() {
 	// Default for SSR

@@ -2,17 +2,15 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import { MoonIcon, SunIcon, SunMoonIcon, EllipsisIcon } from '@lucide/svelte';
 	import { useTheme } from 'svelte-themes';
-	import { browser } from '$app/environment';
 	import { cn } from '$lib/utils';
 	import { streamPageScroll } from '$lib/runes.svelte';
 
 	const theme = useTheme();
 	const pageScroll = streamPageScroll();
 
-	const isAtTopOrBottom = $derived.by(() => {
-		if (!browser) return true;
-		return pageScroll.isAtTop || pageScroll.isAtBottom || pageScroll.isScrolling;
-	});
+	const isAtTopOrBottom = $derived(
+		pageScroll.isAtTop || pageScroll.isAtBottom || pageScroll.isScrolling
+	);
 
 	function handleClick() {
 		switch (theme.theme) {

@@ -3,12 +3,12 @@
 	import PageSection from '$lib/components/PageSection.svelte';
 	import logo2 from '$lib/assets/logo2.png';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { streamBreakpoint } from '$lib/runes.svelte';
+	import { streamViewport } from '$lib/runes.svelte';
 
-	const breakpoint = streamBreakpoint();
+	const viewport = streamViewport();
 
 	const buttonSize = $derived.by(() => {
-		if (breakpoint.value >= 4 || breakpoint.value == 2) {
+		if (viewport.breakpoint >= 4 || viewport.breakpoint == 2) {
 			return 'md';
 		} else {
 			return 'sm';
