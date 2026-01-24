@@ -40,8 +40,10 @@ export function streamBreakpoint() {
 export function streamPageScroll() {
 	// Default for SSR
 	let scrollY = $state(0);
+	let isScrolling = $state(false);
 	let viewportHeight = $state(0);
 	let pageHeight = $state(0);
+	let scrollTimeout: ReturnType<typeof setTimeout>;
 
 	// Derived state for position checks
 	const isAtTop = $derived(scrollY < 10);
@@ -54,6 +56,16 @@ export function streamPageScroll() {
 
 	function handleScroll() {
 		scrollY = window.scrollY;
+		isScrolling = true;
+
+		// Clear existing timeout
+		clearTimeout(scrollTimeout);
+
+		// Set scrolling to false after 150ms of no scroll events
+		scrollTimeout = setTimeout(() => {
+			isScrolling = false;
+		}, 150);
+
 		// Update heights on scroll too, in case of dynamic content resizing
 		updateHeight();
 	}
@@ -70,12 +82,16 @@ export function streamPageScroll() {
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 			window.removeEventListener('resize', updateHeight);
+			clearTimeout(scrollTimeout);
 		};
 	});
 
 	return {
 		get y() {
 			return scrollY;
+		},
+		get isScrolling() {
+			return isScrolling;
 		},
 		get isAtTop() {
 			return isAtTop;

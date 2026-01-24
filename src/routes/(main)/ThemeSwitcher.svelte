@@ -7,11 +7,11 @@
 	import { streamPageScroll } from '$lib/runes.svelte';
 
 	const theme = useTheme();
-	const scrollState = streamPageScroll();
+	const pageScroll = streamPageScroll();
 
 	const isAtTopOrBottom = $derived.by(() => {
 		if (!browser) return true;
-		return scrollState.isAtTop || scrollState.isAtBottom;
+		return pageScroll.isAtTop || pageScroll.isAtBottom || pageScroll.isScrolling;
 	});
 
 	function handleClick() {
