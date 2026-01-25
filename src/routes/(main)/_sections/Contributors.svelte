@@ -3,7 +3,16 @@
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { cn } from '$lib/utils';
-	import { Mail, Linkedin, Github, Globe, Instagram, Twitter, Cloud } from '@lucide/svelte';
+	import {
+		Mail,
+		Linkedin,
+		Github,
+		Globe,
+		Instagram,
+		Twitter,
+		Cloud,
+		ChevronRightIcon
+	} from '@lucide/svelte';
 	import johnImg from '$lib/assets/ceo_john.png';
 	import sarahImg from '$lib/assets/cto_sarah.avif';
 	import michaelImg from '$lib/assets/coo_michael.png';
@@ -128,7 +137,7 @@
 			<Card
 				gradient="tl"
 				class={cn(
-					'group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-surface p-0 transition-all',
+					'group flex cursor-pointer flex-col overflow-hidden rounded-2xl transition-all',
 					// xs (Mobile): Shows 10 contributors (2 columns).
 					// sm (Tablet): Shows 9 contributors (3 columns) — Hides the 10th item.
 					// lg (Laptop): Shows 8 contributors (4 columns) — Hides the 9th and 10th items.
@@ -165,7 +174,7 @@
 	</div>
 
 	<div class="mt-16 flex justify-center">
-		<Button variant="outline" rounded href="/contributors" class="px-8 font-semibold">
+		<Button variant="outline" rounded href="/contributors" suffixIcon={ChevronRightIcon}>
 			Lihat Semua Kontributor
 		</Button>
 	</div>

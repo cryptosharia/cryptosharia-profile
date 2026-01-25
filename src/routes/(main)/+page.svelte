@@ -4,6 +4,7 @@
 	import Principles from './_sections/Principles.svelte';
 	import Contributors from './_sections/Contributors.svelte';
 	import Ecosystem from './_sections/Ecosystem.svelte';
+	import Activities from './_sections/Activities.svelte';
 	import Contact from './_sections/Contact.svelte';
 </script>
 
@@ -12,8 +13,7 @@
 	<VisionMission />
 	<Principles />
 	<Contributors />
-
+	<Activities />
 	<Ecosystem />
-
 	<Contact />
 </main>
