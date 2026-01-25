@@ -20,7 +20,7 @@
 <PageSection
 	id="discord"
 	title="Discord Premium"
-	subtitle="Bergabung dengan komunitas Discord eksklusif kami dan dapatkan manfaat premium. Terhubung dengan profesional yang berpikiran sama, akses konten eksklusif, dan jadilah bagian dari sesuatu yang istimewa."
+	subtitle="Bergabunglah dengan komunitas Discord eksklusif kami, lalu dapatkan benefitnya"
 	class="bg-linear-to-br from-indigo-600 to-background transition-colors dark:from-indigo-700"
 >
 	<div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
@@ -44,12 +44,16 @@
 		</div>
 
 		<!-- Right: Benefits List -->
-		<div class="flex flex-col space-y-8 md:items-end md:text-right">
+		<div class="flex flex-col space-y-8">
 			<div class="space-y-4">
 				<h3 class="fl-text-xl/2xl font-bold text-foreground">Manfaat Premium</h3>
+				<p class="fl-text-base/lg leading-relaxed text-foreground">
+					Nikmati pengalaman yang lebih baik dengan dukungan prioritas, konten eksklusif, dan
+					kesempatan untuk terhubung langsung dengan tim kami.
+				</p>
 				<ul class="space-y-4">
 					{#each benefits as benefit (benefit)}
-						<li class="flex items-center gap-3 md:flex-row-reverse">
+						<li class="flex items-center gap-3">
 							<CheckCircleIcon class="h-6 w-6 shrink-0 text-green-300" />
 							<span class="fl-text-base/lg text-foreground">{benefit}</span>
 						</li>
