@@ -29,7 +29,7 @@
 	}: Props = $props();
 
 	const base = $derived([
-		/*tw*/ 'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-medium transition-all',
+		/*tw*/ 'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-semibold transition-all',
 		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none',
 		!pointerEvents && 'pointer-events-none'
 	]);

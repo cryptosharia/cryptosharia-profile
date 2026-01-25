@@ -44,7 +44,7 @@
 	--color-foreground: var(--color-gray-300);
 	--color-faded: var(--color-gray-500);
 
-	--color-line: var(--color-gray-600);
+	--color-line: var(--color-gray-700);
 	--color-shade: rgba(255, 255, 255, 0.05);
 }
 
