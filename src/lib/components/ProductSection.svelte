@@ -46,9 +46,9 @@
 </script>
 
 <section class={cn('fl-py-10/16', className)} {...rest}>
-	<div class="mx-auto max-w-7xl fl-px-3/6">
+	<div class="mx-auto fl-space-y-3/6 max-w-7xl fl-px-3/6">
 		<!-- Header -->
-		<div class="mx-auto fl-space-y-3/4 mb-6 max-w-3xl text-center">
+		<div class="mx-auto fl-space-y-3/4 max-w-3xl text-center">
 			<div class="mt-4 flex flex-col items-center gap-1">
 				<h2
 					class="font-serif fl-text-3xl/5xl leading-tight font-bold tracking-tight text-foreground"
@@ -67,24 +67,24 @@
 		</div>
 
 		<!-- Features Grid -->
-		<div class="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="grid grid-cols-2 fl-gap-3/6 lg:grid-cols-4">
 			{#each features as feature (feature.title)}
-				<Card class="group flex flex-col items-start gap-4 p-8">
+				<Card class="group flex flex-col items-start p-4 sm:gap-2.5 sm:p-5">
 					<div class="flex items-center gap-2">
 						<Button
 							variant="blank"
 							size="icon-md"
 							pointerEvents={false}
-							class="rounded-2xl bg-primary/10 text-primary transition-transform group-hover:rotate-6"
+							class="hidden rounded-2xl bg-primary/10 text-primary transition-transform group-hover:rotate-6 sm:inline-flex"
 						>
-							<feature.icon size={24} />
+							<feature.icon />
 						</Button>
-						<h3 class="line-clamp-1 fl-text-lg/xl font-semibold text-primary">
+						<h3 class="line-clamp-1 text-base font-semibold text-primary sm:text-lg">
 							{feature.title}
 						</h3>
 					</div>
-					<div class="space-y-1">
-						<p class="line-clamp-3 fl-text-base/lg leading-relaxed text-faded">
+					<div>
+						<p class="line-clamp-2 text-sm leading-relaxed text-faded sm:line-clamp-3 sm:text-base">
 							{feature.description}
 						</p>
 					</div>
@@ -123,6 +123,7 @@
 						<h2
 							class="font-serif fl-text-3xl/5xl leading-tight font-bold tracking-tight text-foreground"
 						>
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							{@html benefitsTitle}
 						</h2>
 						<p class="max-w-xl fl-text-base/lg leading-relaxed text-foreground/80">
@@ -149,7 +150,7 @@
 					<Button
 						variant="solid"
 						size="md"
-						class="font-bold"
+						class="font-bold uppercase"
 						rounded
 						href={ctaHref}
 						target="_blank"

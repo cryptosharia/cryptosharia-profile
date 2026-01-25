@@ -105,7 +105,7 @@
 		benefitsTitle="Akses Informasi <span class=&quot;text-primary italic&quot;>Crypto Syariah</span> Terpercaya"
 		benefitsDescription="CryptoSharia Media menyediakan berita, analisis, dan edukasi tentang cryptocurrency dari perspektif syariah. Dapatkan insight terkini tentang perkembangan crypto halal dan blockchain technology."
 		benefits={mediaBenefits}
-		ctaText="KUNJUNGI WEBSITE"
+		ctaText="Kunjungi Website"
 		ctaHref="https://media.cryptosharia.id"
 		ctaIcon={TrendingUp}
 		reverse={true}
@@ -121,7 +121,7 @@
 		benefitsTitle="Benefit <span class=&quot;text-primary italic&quot;>Komunitas Premium</span> Kami"
 		benefitsDescription="Nikmati pengalaman yang lebih baik dengan dukungan prioritas, konten eksklusif, dan kesempatan untuk terhubung langsung with tim kami."
 		benefits={discordBenefits}
-		ctaText="GABUNG DISCORD PREMIUM"
+		ctaText="Gabung Discord Premium"
 		ctaHref="https://discord.gg/cryptosharia"
 		ctaIcon={Zap}
 	/>
