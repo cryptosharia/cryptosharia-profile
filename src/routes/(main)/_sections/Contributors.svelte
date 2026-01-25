@@ -173,7 +173,7 @@
 		{/each}
 	</div>
 
-	<div class="mt-16 flex justify-center">
+	<div class="mt-12 flex justify-center">
 		<Button variant="outline" rounded href="/contributors" suffixIcon={ChevronRightIcon}>
 			Lihat Semua Kontributor
 		</Button>

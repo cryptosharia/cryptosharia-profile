@@ -27,10 +27,10 @@
 </script>
 
 <PageSection id="vision-mission">
-	<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:fl-gap-3/6">
+	<div class="grid grid-cols-1 fl-gap-3/6 md:grid-cols-2">
 		{#each cards as card (card.title)}
-			<Card class="{card.bgClass} p-8 text-foreground">
-				<div class="mb-6 flex items-center gap-4">
+			<Card class="{card.bgClass} fl-space-y-3/4 fl-p-5/8 text-foreground">
+				<div class="flex items-center gap-3">
 					<Button
 						variant="blank"
 						size="icon-md"
@@ -42,7 +42,7 @@
 					</Button>
 					<h2 class="{card.titleClass} font-serif text-2xl font-bold">{card.title}</h2>
 				</div>
-				<p class="text-lg leading-relaxed">
+				<p class="fl-text-base/lg leading-relaxed">
 					{card.content}
 				</p>
 			</Card>

@@ -69,18 +69,18 @@
 		</div>
 
 		<!-- Right: Contact Form -->
-		<Card class="p-8">
+		<Card class="fl-p-5/8">
 			<form onsubmit={(e) => e.preventDefault()} class="space-y-6">
-				<Field label="Nama Lengkap" forId="name">
-					<InputField id="name" placeholder="Nama Anda" />
+				<Field label="Nama" forId="name">
+					<InputField id="name" placeholder="Masukkan nama anda" />
 				</Field>
 
 				<Field label="Alamat Email" forId="email">
-					<InputField id="email" type="email" placeholder="email@contoh.com" />
+					<InputField id="email" type="email" placeholder="Masukkan alamat email anda" />
 				</Field>
 
 				<Field label="Pesan" forId="message">
-					<InputField id="message" multiline placeholder="Tulis pesan Anda di sini..." />
+					<InputField id="message" multiline placeholder="Tulis pesan anda di sini..." />
 				</Field>
 
 				<Button variant="solid" type="submit" class="w-full" prefixIcon={Send}>Kirim Pesan</Button>
