@@ -34,7 +34,7 @@
 					{title}
 				</h2>
 				{#if subtitle}
-					<p class={cn('mx-auto fl-text-lg/xl leading-relaxed', subtitleClass)}>
+					<p class={cn('fl-text-lg/xl leading-relaxed text-foreground', subtitleClass)}>
 						{subtitle}
 					</p>
 				{/if}

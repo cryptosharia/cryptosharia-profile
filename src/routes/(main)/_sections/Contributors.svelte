@@ -126,7 +126,7 @@
 	<div class="grid grid-cols-2 fl-gap-3/6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 		{#each contributors as member, i (member.name)}
 			<Card
-				direction="tl"
+				gradient="tl"
 				class={cn(
 					'group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-surface p-0 transition-all',
 					// xs (Mobile): Shows 10 contributors (2 columns).

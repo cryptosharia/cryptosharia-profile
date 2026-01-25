@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import CryptoShariaLogoType from '$lib/components/CryptoShariaLogoType.svelte';
-	import { cn } from '$lib/utils';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { streamViewport } from '$lib/runes.svelte';
 
