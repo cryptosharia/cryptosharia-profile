@@ -49,9 +49,12 @@
 }
 
 @layer base {
-	/* Specify global inheritted styles */
 	html {
+		/* Specify global inheritted styles */
 		@apply scroll-smooth font-sans text-foreground;
+
+		/* scroll-pt to solves page section being hidden by navbar on scroll */
+		@apply fl-scroll-pt-6/0;
 	}
 
 	/* Specify body styles (not inheritted) */

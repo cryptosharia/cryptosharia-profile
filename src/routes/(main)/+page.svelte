@@ -4,7 +4,6 @@
 	import Principles from './_sections/Principles.svelte';
 	import Contributors from './_sections/Contributors.svelte';
 	import Contact from './_sections/Contact.svelte';
-	import Footer from './_sections/Footer.svelte';
 </script>
 
 <main>
@@ -14,5 +13,3 @@
 	<Contributors />
 	<Contact />
 </main>
-
-<Footer />
