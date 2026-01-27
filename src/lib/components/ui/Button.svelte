@@ -11,7 +11,7 @@
 		| 'ghost'
 		| 'link-ghost';
 
-	export type ButtonSize = 'md' | 'sm' | 'icon-md' | 'icon-sm' | 'text';
+	export type ButtonSize = 'md' | 'sm' | 'sm-md' | 'icon-md' | 'icon-sm' | 'text';
 
 	export type ButtonProps = ButtonPrimitive.RootProps & {
 		variant?: ButtonVariant;
@@ -40,16 +40,17 @@
 	}: ButtonProps = $props();
 
 	const base = [
-		'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-semibold transition-all',
-		'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none'
+		/*tw*/ 'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-semibold transition-all',
+		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none'
 	];
 
 	const sizes = $derived({
-		sm: `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
-		md: `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
-		'icon-md': `size-12 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
-		'icon-sm': `size-8 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
-		text: 'active:scale-95'
+		sm: /*tw*/ `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
+		md: /*tw*/ `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		'sm-md': /*tw*/ `fl-h-10/12 fl-px-4/6 fl-text-sm/base fl-gap-1.5/2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		'icon-md': /*tw*/ `size-12 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		'icon-sm': /*tw*/ `size-8 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
+		text: /*tw*/ 'active:scale-95'
 	});
 
 	const variants = {
@@ -88,7 +89,15 @@
 	);
 
 	const iconSize = $derived(
-		size === 'sm' ? 18 : size === 'icon-md' ? 22 : size === 'icon-sm' ? 16 : 20
+		size === 'sm'
+			? 18
+			: size === 'sm-md'
+				? 20
+				: size === 'icon-md'
+					? 22
+					: size === 'icon-sm'
+						? 16
+						: 20
 	);
 </script>
 

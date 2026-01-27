@@ -4,8 +4,10 @@
 	import { resolve } from '$app/paths';
 	import { cn } from '$lib/utils';
 
+	export type LogoSize = 'sm' | 'md' | 'lg' | 'sm-md';
+
 	type Props = {
-		size?: 'sm' | 'md' | 'lg';
+		size?: LogoSize;
 		href?: string;
 		ariaLabel?: string;
 	};
@@ -16,7 +18,8 @@
 	const sizeMap = {
 		sm: { img: 'size-8', text: 'text-lg' },
 		md: { img: 'size-9', text: 'text-xl' },
-		lg: { img: 'size-10', text: 'text-2xl' }
+		lg: { img: 'size-10', text: 'text-2xl' },
+		'sm-md': { img: 'fl-size-8/9', text: 'fl-text-lg/xl' }
 	};
 </script>
 

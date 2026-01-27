@@ -3,17 +3,6 @@
 	import PageSection from '$lib/components/PageSection.svelte';
 	import logo2 from '$lib/assets/logo2.png';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { streamViewport } from '$lib/runes.svelte';
-
-	const viewport = streamViewport();
-
-	const buttonSize = $derived.by(() => {
-		if (viewport.breakpoint >= 4 || viewport.breakpoint == 2) {
-			return 'md';
-		} else {
-			return 'sm';
-		}
-	});
 
 	// Tilt effect state
 	let rotateX = $state(0);
@@ -94,10 +83,10 @@
 				</p>
 			</div>
 			<div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
-				<Button size={buttonSize} variant="solid" suffixIcon={NetworkIcon} href="/#ecosystem">
+				<Button size="sm-md" variant="solid" suffixIcon={NetworkIcon} href="/#ecosystem">
 					Lihat Ekosistem Kami
 				</Button>
-				<Button size={buttonSize} variant="outline" href="/#contact">Hubungi Kami</Button>
+				<Button size="sm-md" variant="outline" href="/#contact">Hubungi Kami</Button>
 			</div>
 		</div>
 	</div>

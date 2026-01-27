@@ -2,7 +2,6 @@
 	import { page } from '$app/state';
 	import CryptoShariaLogoType from '$lib/components/CryptoShariaLogoType.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { streamViewport } from '$lib/runes.svelte';
 
 	type Link = {
 		text: string;
@@ -12,13 +11,8 @@
 	// Reactive state for UI
 	let isDrawerOpen = $state(false);
 	let drawerHeight = $state(0);
-	const viewport = streamViewport();
-
 	// Derived active path (first segment of the URL)
 	const activeSegment = $derived(`/${page.url.pathname.split('/')[1]}`);
-
-	// Derived logo size
-	const logoSize = $derived(viewport.breakpoint >= 3 ? 'md' : 'sm');
 
 	// Derived navigation links based on current route
 	const links: Link[] = $derived([
@@ -67,7 +61,7 @@
 <header class="fixed top-0 left-0 z-50 h-16 w-full shadow-sm backdrop-blur-lg">
 	<nav class="mx-auto flex h-full max-w-7xl items-center justify-between fl-px-3/6">
 		<!-- Brand/Logo -->
-		<CryptoShariaLogoType size={logoSize} />
+		<CryptoShariaLogoType size="sm-md" />
 
 		<!-- Desktop Menu -->
 		<ul class="hidden items-center fl-gap-x-4/10 md:flex">
@@ -114,7 +108,7 @@
 	<!-- Mobile Drawer -->
 	<div
 		bind:clientHeight={drawerHeight}
-		class="border-border absolute top-0 left-0 -z-10 w-full rounded-b-3xl border-b bg-background gradient-background px-4 pt-16 pb-2 shadow-xl transition-all duration-500 md:hidden {!isDrawerOpen &&
+		class="border-border absolute top-0 left-0 -z-10 w-full rounded-b-3xl border-b gradient-background bg-background px-4 pt-16 pb-2 shadow-xl transition-all duration-500 md:hidden {!isDrawerOpen &&
 			'invisible opacity-0'}"
 		style:transform={isDrawerOpen ? 'translateY(0)' : `translateY(-${drawerHeight + 100}px)`}
 	>
