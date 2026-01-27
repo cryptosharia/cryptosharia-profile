@@ -1,38 +1,48 @@
-<script lang="ts">
-	import type { Snippet, Component } from 'svelte';
-	import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
-	import { cn } from '$lib/utils';
+<script lang="ts" module>
+	import { Button as ButtonPrimitive } from 'bits-ui';
+	import type { Component } from 'svelte';
 
-	type Props = (HTMLButtonAttributes | HTMLAnchorAttributes) & {
-		class?: string;
-		href?: string;
-		variant?: 'solid' | 'outline' | 'blank' | 'soft' | 'link' | 'ghost' | 'link-ghost';
-		size?: 'md' | 'sm' | 'icon-md' | 'icon-sm' | 'text';
+	export type ButtonVariant =
+		| 'solid'
+		| 'outline'
+		| 'blank'
+		| 'soft'
+		| 'link'
+		| 'ghost'
+		| 'link-ghost';
+
+	export type ButtonSize = 'md' | 'sm' | 'icon-md' | 'icon-sm' | 'text';
+
+	export type ButtonProps = ButtonPrimitive.RootProps & {
+		variant?: ButtonVariant;
+		size?: ButtonSize;
 		rounded?: boolean;
 		pointerEvents?: boolean;
-		prefixIcon?: Component;
-		suffixIcon?: Component;
-		children?: Snippet;
+		prefixIcon?: Component<Record<string, unknown>>;
+		suffixIcon?: Component<Record<string, unknown>>;
 	};
+</script>
 
-	const {
-		class: className,
+<script lang="ts">
+	import { Button } from 'bits-ui';
+	import { cn } from '$lib/utils';
+
+	let {
 		children,
-		href,
 		variant = 'solid',
 		size = 'md',
 		rounded = false,
 		pointerEvents = true,
 		prefixIcon: PrefixIcon,
 		suffixIcon: SuffixIcon,
+		class: className,
 		...rest
-	}: Props = $props();
+	}: ButtonProps = $props();
 
-	const base = $derived([
-		/*tw*/ 'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-semibold transition-all',
-		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none',
-		!pointerEvents && 'pointer-events-none'
-	]);
+	const base = [
+		'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-semibold transition-all',
+		'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none'
+	];
 
 	const sizes = $derived({
 		sm: `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
@@ -67,14 +77,22 @@
 		blank: ''
 	};
 
-	const mergedClass = $derived(cn(base, sizes[size], variants[variant], className));
+	const mergedClass = $derived(
+		cn(
+			base,
+			sizes[size as keyof typeof sizes],
+			variants[variant as keyof typeof variants],
+			!pointerEvents && 'pointer-events-none',
+			className
+		)
+	);
 
 	const iconSize = $derived(
 		size === 'sm' ? 18 : size === 'icon-md' ? 22 : size === 'icon-sm' ? 16 : 20
 	);
 </script>
 
-<svelte:element this={href ? 'a' : 'button'} {href} class={mergedClass} {...rest}>
+<Button.Root class={mergedClass} {...rest}>
 	{#if PrefixIcon}
 		<PrefixIcon size={iconSize} />
 	{/if}
@@ -82,4 +100,4 @@
 	{#if SuffixIcon}
 		<SuffixIcon size={iconSize} />
 	{/if}
-</svelte:element>
+</Button.Root>
