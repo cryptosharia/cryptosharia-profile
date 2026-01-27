@@ -13,6 +13,7 @@
 	}
 
 	type Props = HTMLAttributes<HTMLElement> & {
+		primaryColor?: string;
 		title: string;
 		titleHighlight?: string;
 		subtitle: string;
@@ -29,6 +30,7 @@
 
 	let {
 		class: className,
+		primaryColor,
 		title,
 		titleHighlight,
 		subtitle,
@@ -45,7 +47,11 @@
 	}: Props = $props();
 </script>
 
-<section class={cn('fl-py-10/16', className)} {...rest}>
+<section
+	style={primaryColor ? `--color-primary: ${primaryColor}` : undefined}
+	class={cn('fl-py-10/16', className)}
+	{...rest}
+>
 	<div class="mx-auto fl-space-y-3/6 max-w-7xl fl-px-3/6">
 		<!-- Header -->
 		<div class="mx-auto fl-space-y-3/4 max-w-3xl text-center">
@@ -93,7 +99,7 @@
 		</div>
 
 		<!-- Main Content Card -->
-		<Card class="fl-p-6/12" gradient={reverse ? 'br' : 'bl'}>
+		<Card class="fl-p-6/12">
 			<div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
 				<!-- Poster Column -->
 				<div
@@ -106,14 +112,9 @@
 						href={ctaHref}
 						target="_blank"
 						gradient="none"
-						class="group relative aspect-3/4 w-full max-w-md overflow-hidden border-2 border-white/20 p-2 shadow-2xl transition-all hover:scale-[1.02]"
+						class="aspect-3/4 w-full max-w-md overflow-hidden p-2"
 					>
-						<div class="relative h-full w-full overflow-hidden rounded-2xl">
-							<img src={posterSrc} alt={title} class="h-full w-full object-cover" />
-							<div
-								class="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 hover:opacity-100"
-							></div>
-						</div>
+						<img src={posterSrc} alt={title} class="h-full w-full rounded-2xl object-cover" />
 					</Card>
 				</div>
 

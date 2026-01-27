@@ -80,6 +80,7 @@
 
 <!-- Ecosystem / Product Stack -->
 <section
+	id="ecosystem"
 	class="relative my-16 overflow-hidden rounded-[3rem] border-y border-primary/5 bg-primary/5 py-16 shadow-inner dark:bg-primary/10"
 >
 	<!-- Decorative Background Element -->
@@ -102,7 +103,7 @@
 		subtitle="Platform berita dan edukasi cryptocurrency syariah terlengkap di Indonesia"
 		features={mediaFeatures}
 		posterSrc={cryptoShariaMediaImg}
-		benefitsTitle="Akses Informasi <span class=&quot;text-primary italic&quot;>Crypto Syariah</span> Terpercaya"
+		benefitsTitle={`${''}Akses Informasi <span class="text-primary italic">Crypto Syariah</span> Terpercaya`}
 		benefitsDescription="CryptoSharia Media menyediakan berita, analisis, dan edukasi tentang cryptocurrency dari perspektif syariah. Dapatkan insight terkini tentang perkembangan crypto halal dan blockchain technology."
 		benefits={mediaBenefits}
 		ctaText="Kunjungi Website"
@@ -112,13 +113,14 @@
 	/>
 
 	<ProductSection
+		primaryColor="#5865F2"
 		id="discord"
 		title="Discord"
 		titleHighlight="Premium"
 		subtitle="Bergabunglah dengan komunitas Discord eksklusif kami, lalu dapatkan benefitnya"
 		features={discordFeatures}
 		posterSrc={discordPremiumImg}
-		benefitsTitle="Benefit <span class=&quot;text-primary italic&quot;>Komunitas Premium</span> Kami"
+		benefitsTitle={`${''}Benefit <span class="text-primary italic">Komunitas Premium</span> Kami`}
 		benefitsDescription="Nikmati pengalaman yang lebih baik dengan dukungan prioritas, konten eksklusif, dan kesempatan untuk terhubung langsung with tim kami."
 		benefits={discordBenefits}
 		ctaText="Gabung Discord Premium"

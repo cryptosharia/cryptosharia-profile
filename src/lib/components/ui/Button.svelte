@@ -43,7 +43,10 @@
 	});
 
 	const variants = {
-		solid: [/*tw*/ 'bg-primary text-on-primary shadow-sm', /*tw*/ 'hover:bg-primary-700'],
+		solid: [
+			/*tw*/ 'bg-primary text-on-primary shadow-sm',
+			/*tw*/ 'hover:bg-[color-mix(in_srgb,var(--color-primary),black_15%)]'
+		],
 		outline: [
 			/*tw*/ 'border-2 border-primary text-primary bg-transparent',
 			/*tw*/ 'hover:bg-primary/5'

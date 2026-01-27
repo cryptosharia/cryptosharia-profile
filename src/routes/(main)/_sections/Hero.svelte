@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExternalLinkIcon } from '@lucide/svelte';
+	import { NetworkIcon } from '@lucide/svelte';
 	import PageSection from '$lib/components/PageSection.svelte';
 	import logo2 from '$lib/assets/logo2.png';
 	import Button from '$lib/components/ui/Button.svelte';
@@ -94,14 +94,8 @@
 				</p>
 			</div>
 			<div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
-				<Button
-					size={buttonSize}
-					variant="solid"
-					suffixIcon={ExternalLinkIcon}
-					href="https://media.cryptosharia.id"
-					target="_blank"
-				>
-					Kunjungi Media Kami
+				<Button size={buttonSize} variant="solid" suffixIcon={NetworkIcon} href="/#ecosystem">
+					Lihat Ekosistem Kami
 				</Button>
 				<Button size={buttonSize} variant="outline" href="/#contact">Hubungi Kami</Button>
 			</div>
