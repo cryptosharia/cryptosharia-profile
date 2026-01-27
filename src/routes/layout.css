@@ -3,6 +3,7 @@
 
 @import 'tailwindcss';
 @plugin 'fluid-tailwindcss';
+@plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -55,6 +56,9 @@
 
 		/* scroll-pt to solves page section being hidden by navbar on scroll */
 		@apply fl-scroll-pt-6/0;
+
+		/* Prevent scrollbar from causing layout shift by reserving the space for it */
+		scrollbar-gutter: stable;
 	}
 
 	/* Specify body styles (not inheritted) */
@@ -76,9 +80,9 @@
 }
 
 @utility gradient-background {
-	@apply bg-linear-to-br from-primary-50/50 to-background dark:from-primary-950/15;
+	@apply bg-background bg-linear-to-br from-primary-50/50 to-background dark:from-primary-950/15;
 }
 
 @utility gradient-surface {
-	@apply from-primary-50/50 to-surface dark:from-primary-950/15;
+	@apply bg-surface bg-linear-to-br from-primary-50/50 to-surface dark:from-primary-950/15;
 }
