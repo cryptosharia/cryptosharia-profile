@@ -3,6 +3,7 @@
 	import logo1 from '$lib/assets/logo1.png';
 	import { resolve } from '$app/paths';
 	import { cn } from '$lib/utils';
+	import { fly } from 'svelte/transition';
 
 	export type LogoSize = 'sm' | 'md' | 'lg' | 'sm-md';
 
@@ -10,9 +11,15 @@
 		size?: LogoSize;
 		href?: string;
 		ariaLabel?: string;
+		variant?: 'mark' | 'type';
 	};
 
-	const { size = 'md', href = resolve('/'), ariaLabel = 'Go to Home' }: Props = $props();
+	const {
+		size = 'md',
+		href = resolve('/'),
+		ariaLabel = 'Go to Home',
+		variant = 'mark'
+	}: Props = $props();
 
 	// Map generic sizes to specific classes for image and text
 	const sizeMap = {
@@ -27,9 +34,14 @@
 	<img
 		src={logo1}
 		alt="CryptoSharia Logo"
-		class={cn('object-contain transition-all', sizeMap[size].img)}
+		class={cn('z-10 object-contain transition-all', sizeMap[size].img)}
 	/>
-	<span class={cn('font-serif font-bold text-primary transition-all', sizeMap[size].text)}>
-		CryptoSharia
-	</span>
+	{#if variant === 'type'}
+		<span
+			transition:fly={{ x: -40, duration: 1000 }}
+			class={cn('font-serif font-bold text-primary transition-all', sizeMap[size].text)}
+		>
+			CryptoSharia
+		</span>
+	{/if}
 </Button>

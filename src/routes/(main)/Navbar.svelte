@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import CryptoShariaLogoType from '$lib/components/CryptoShariaLogoType.svelte';
+	import CryptoShariaLogo from '$lib/components/CryptoShariaLogo.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { streamPageScroll } from '$lib/runes.svelte';
 
 	type Link = {
 		text: string;
@@ -11,6 +12,9 @@
 	// Reactive state for UI
 	let isDrawerOpen = $state(false);
 	let drawerHeight = $state(0);
+
+	const pageScroll = streamPageScroll();
+
 	// Derived active path (first segment of the URL)
 	const activeSegment = $derived(`/${page.url.pathname.split('/')[1]}`);
 
@@ -61,7 +65,7 @@
 <header class="fixed top-0 left-0 z-50 h-16 w-full shadow-sm backdrop-blur-lg">
 	<nav class="mx-auto flex h-full max-w-7xl items-center justify-between fl-px-3/6">
 		<!-- Brand/Logo -->
-		<CryptoShariaLogoType size="sm-md" />
+		<CryptoShariaLogo size="sm-md" variant={pageScroll.isAtTop ? 'mark' : 'type'} />
 
 		<!-- Desktop Menu -->
 		<ul class="hidden items-center fl-gap-x-4/10 md:flex">

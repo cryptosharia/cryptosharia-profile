@@ -2,7 +2,7 @@
 	import PageSection from '$lib/components/PageSection.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { Facebook, Twitter, Instagram, Linkedin, Youtube } from '@lucide/svelte';
-	import CryptoShariaLogoType from '$lib/components/CryptoShariaLogoType.svelte';
+	import CryptoShariaLogo from '$lib/components/CryptoShariaLogo.svelte';
 
 	const quickLinks = [
 		{ name: 'Tentang Kami', href: '/' },
@@ -40,7 +40,7 @@
 	<div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12">
 		<!-- Column 1: Brand (Always first) -->
 		<div id="col" class="sm:order-1 lg:order-1 lg:col-span-4">
-			<CryptoShariaLogoType size="lg" />
+			<CryptoShariaLogo size="lg" variant="type" />
 			<p class="text-sm leading-relaxed text-faded">
 				Membangun ekosistem crypto syariah yang halal, transparan, dan inovatif untuk komunitas
 				Muslim di Indonesia.
