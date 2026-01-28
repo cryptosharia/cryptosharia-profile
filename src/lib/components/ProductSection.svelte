@@ -89,7 +89,7 @@
 						</h3>
 					</div>
 					<div>
-						<p class="line-clamp-2 text-sm leading-relaxed text-faded sm:line-clamp-3 sm:text-base">
+						<p class="line-clamp-3 text-xs text-faded sm:text-base sm:leading-relaxed">
 							{feature.description}
 						</p>
 					</div>
