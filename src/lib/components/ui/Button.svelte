@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import { Button as ButtonPrimitive } from 'bits-ui';
-	import type { Component } from 'svelte';
+	import type { Component, Snippet } from 'svelte';
 
 	export type ButtonVariant =
 		| 'solid'
@@ -11,15 +11,23 @@
 		| 'ghost'
 		| 'link-ghost';
 
-	export type ButtonSize = 'md' | 'sm' | 'sm-md' | 'icon-md' | 'icon-sm' | 'text';
+	export type ButtonSize =
+		| 'md'
+		| 'sm'
+		| 'sm-md'
+		| 'icon-lg'
+		| 'icon-md-lg'
+		| 'icon-md'
+		| 'icon-sm'
+		| 'text';
 
 	export type ButtonProps = ButtonPrimitive.RootProps & {
 		variant?: ButtonVariant;
 		size?: ButtonSize;
 		rounded?: boolean;
 		pointerEvents?: boolean;
-		prefixIcon?: Component<Record<string, unknown>>;
-		suffixIcon?: Component<Record<string, unknown>>;
+		prefixIcon?: Component<Record<string, unknown>> | Snippet<[{ class: string }]>;
+		suffixIcon?: Component<Record<string, unknown>> | Snippet<[{ class: string }]>;
 	};
 </script>
 
@@ -48,6 +56,8 @@
 		sm: /*tw*/ `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
 		md: /*tw*/ `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
 		'sm-md': /*tw*/ `fl-h-10/12 fl-px-4/6 fl-text-sm/base fl-gap-1.5/2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		'icon-lg': /*tw*/ `size-14 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-2xl'}`,
+		'icon-md-lg': /*tw*/ `fl-size-12/14 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-2xl'}`,
 		'icon-md': /*tw*/ `size-12 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
 		'icon-sm': /*tw*/ `size-8 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
 		text: /*tw*/ 'active:scale-95'
@@ -88,25 +98,38 @@
 		)
 	);
 
-	const iconSize = $derived(
-		size === 'sm'
-			? 18
-			: size === 'sm-md'
-				? 20
-				: size === 'icon-md'
-					? 22
-					: size === 'icon-sm'
-						? 16
-						: 20
+	const iconClasses = $derived(
+		cn(
+			size === 'sm' && /*tw*/ 'size-4.5',
+			size === 'md' && /*tw*/ 'size-5',
+			size === 'sm-md' && /*tw*/ 'fl-size-[1.125rem/1.25rem]',
+			size === 'icon-lg' && /*tw*/ 'size-6.5',
+			size === 'icon-md-lg' && /*tw*/ 'fl-size-[1.375rem/1.625rem]',
+			size === 'icon-md' && /*tw*/ 'size-5.5',
+			size === 'icon-sm' && /*tw*/ 'size-4',
+			size === 'text' && /*tw*/ 'size-5'
+		)
 	);
 </script>
 
 <Button.Root class={mergedClass} {...rest}>
 	{#if PrefixIcon}
-		<PrefixIcon size={iconSize} />
+		{#if typeof PrefixIcon === 'function'}
+			{@const Icon = PrefixIcon as Snippet<[{ class: string }]>}
+			{@render Icon({ class: iconClasses })}
+		{:else}
+			{@const Icon = PrefixIcon as Component<Record<string, unknown>>}
+			<Icon class={iconClasses} />
+		{/if}
 	{/if}
 	{@render children?.()}
 	{#if SuffixIcon}
-		<SuffixIcon size={iconSize} />
+		{#if typeof SuffixIcon === 'function'}
+			{@const Icon = SuffixIcon as Snippet<[{ class: string }]>}
+			{@render Icon({ class: iconClasses })}
+		{:else}
+			{@const Icon = SuffixIcon as Component<Record<string, unknown>>}
+			<Icon class={iconClasses} />
+		{/if}
 	{/if}
 </Button.Root>

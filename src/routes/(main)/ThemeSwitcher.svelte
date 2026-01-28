@@ -29,7 +29,7 @@
 
 <Button
 	variant="solid"
-	size="icon-md"
+	size="icon-md-lg"
 	aria-label="Switch theme"
 	onclick={handleClick}
 	rounded
@@ -38,28 +38,30 @@
 		isAtTopOrBottom ? '-translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
 	)}
 >
-	{#if theme.theme === 'dark'}
-		<div
-			transition:scale={{ duration: 300, start: 0 }}
-			class="absolute inset-0 grid place-items-center"
-		>
-			<MoonIcon />
-		</div>
-	{:else if theme.theme === 'light'}
-		<div
-			transition:scale={{ duration: 300, start: 0 }}
-			class="absolute inset-0 grid place-items-center"
-		>
-			<SunIcon />
-		</div>
-	{:else if theme.theme === 'system'}
-		<div
-			transition:scale={{ duration: 300, start: 0 }}
-			class="absolute inset-0 grid place-items-center"
-		>
-			<SunMoonIcon />
-		</div>
-	{:else}
-		<EllipsisIcon />
-	{/if}
+	{#snippet prefixIcon({ class: iconClass }: { class: string })}
+		{#if theme.theme === 'dark'}
+			<div
+				transition:scale={{ duration: 300, start: 0 }}
+				class="absolute inset-0 grid place-items-center"
+			>
+				<MoonIcon class={iconClass} />
+			</div>
+		{:else if theme.theme === 'light'}
+			<div
+				transition:scale={{ duration: 300, start: 0 }}
+				class="absolute inset-0 grid place-items-center"
+			>
+				<SunIcon class={iconClass} />
+			</div>
+		{:else if theme.theme === 'system'}
+			<div
+				transition:scale={{ duration: 300, start: 0 }}
+				class="absolute inset-0 grid place-items-center"
+			>
+				<SunMoonIcon class={iconClass} />
+			</div>
+		{:else}
+			<EllipsisIcon class={iconClass} />
+		{/if}
+	{/snippet}
 </Button>

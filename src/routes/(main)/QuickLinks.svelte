@@ -55,7 +55,7 @@
 
 	<Button
 		variant={isOpen ? 'outline' : 'solid'}
-		size="icon-md"
+		size="icon-md-lg"
 		rounded
 		onclick={toggle}
 		class={cn(
@@ -63,25 +63,26 @@
 			isAtTopOrBottom && !isOpen ? 'translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
 		)}
 	>
-		<!-- Icon transition -->
-		{#if isOpen}
-			<div
-				transition:scale={{ duration: 300, start: 0 }}
-				class="absolute inset-0 grid place-items-center"
-			>
-				<XIcon />
-			</div>
-		{:else}
-			<div
-				transition:scale={{ duration: 300, start: 0 }}
-				class="absolute inset-0 grid place-items-center"
-			>
-				<LinkIcon />
-				<!-- Notification dot -->
-				<span
-					class="absolute top-0.5 right-0.5 size-2.5 rounded-full border border-on-primary bg-primary"
-				></span>
-			</div>
-		{/if}
+		{#snippet prefixIcon({ class: iconClass }: { class: string })}
+			{#if isOpen}
+				<div
+					transition:scale={{ duration: 300, start: 0 }}
+					class="absolute inset-0 grid place-items-center"
+				>
+					<XIcon class={iconClass} />
+				</div>
+			{:else}
+				<div
+					transition:scale={{ duration: 300, start: 0 }}
+					class="absolute inset-0 grid place-items-center"
+				>
+					<LinkIcon class={iconClass} />
+					<!-- Notification dot -->
+					<span
+						class="absolute top-0.5 right-0.5 size-2.5 rounded-full border border-on-primary bg-primary"
+					></span>
+				</div>
+			{/if}
+		{/snippet}
 	</Button>
 </div>
