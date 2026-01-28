@@ -56,13 +56,7 @@
 			{@const textColor = principle.class.split(' ').find((c) => c.startsWith('text-'))}
 			<Card class="flex flex-col items-start gap-4 p-8">
 				<div class="flex items-center gap-2">
-					<Button
-						variant="blank"
-						size="icon-md"
-						rounded
-						pointerEvents={false}
-						class={principle.class}
-					>
+					<Button variant="blank" size="icon-md" rounded class={principle.class}>
 						<principle.icon size={24} />
 					</Button>
 					<h3 class="line-clamp-1 fl-text-lg/xl font-semibold {textColor}">

@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { Button as ButtonPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils';
-	import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	type GradientDirection = 't' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl' | 'none';
 
@@ -16,25 +17,28 @@
 		none: ''
 	};
 
-	type Props = (HTMLAttributes<HTMLDivElement> | HTMLAnchorAttributes) & {
+	type Props = ButtonPrimitive.RootProps & {
 		gradient?: GradientDirection;
-		href?: string;
 	};
 
-	let { class: className, gradient = 'br', children, href, ...rest }: Props = $props();
+	let { class: className, gradient = 'br', children, ...rest }: Props = $props();
 
-	const tag = $derived(href ? 'a' : 'div');
+	const mergedClass = $derived(
+		cn(
+			'rounded-3xl border gradient-surface text-start text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg',
+			gradientMap[gradient],
+			(rest.onclick || rest.href) && 'cursor-pointer',
+			className
+		)
+	);
 </script>
 
-<svelte:element
-	this={tag}
-	{href}
-	class={cn(
-		'rounded-3xl border gradient-surface text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg',
-		gradientMap[gradient],
-		className
-	)}
-	{...rest}
->
-	{@render children?.()}
-</svelte:element>
+{#if rest.onclick || rest.href}
+	<ButtonPrimitive.Root class={mergedClass} {...rest}>
+		{@render children?.()}
+	</ButtonPrimitive.Root>
+{:else}
+	<div class={mergedClass} {...rest as HTMLAttributes<HTMLDivElement>}>
+		{@render children?.()}
+	</div>
+{/if}

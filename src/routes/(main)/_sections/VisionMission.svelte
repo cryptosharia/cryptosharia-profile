@@ -31,13 +31,7 @@
 		{#each cards as card (card.title)}
 			<Card class="{card.bgClass} fl-space-y-3/4 fl-p-5/8 text-foreground">
 				<div class="flex items-center gap-3">
-					<Button
-						variant="blank"
-						size="icon-md"
-						rounded
-						pointerEvents={false}
-						class={card.iconClass}
-					>
+					<Button variant="blank" size="icon-md" rounded class={card.iconClass}>
 						<card.Icon size={24} />
 					</Button>
 					<h2 class="{card.titleClass} font-serif text-2xl font-bold">{card.title}</h2>

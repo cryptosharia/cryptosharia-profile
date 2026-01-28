@@ -70,7 +70,7 @@
 
 		<!-- Right: Contact Form -->
 		<Card class="fl-p-5/8">
-			<form onsubmit={(e) => e.preventDefault()} class="space-y-6">
+			<form onsubmit={(e) => e.preventDefault()} class="space-y-5">
 				<Field label="Nama" forId="name">
 					<InputField id="name" placeholder="Masukkan nama anda" />
 				</Field>
@@ -83,7 +83,12 @@
 					<InputField id="message" multiline placeholder="Tulis pesan anda di sini..." />
 				</Field>
 
-				<Button variant="solid" type="submit" class="w-full" prefixIcon={Send}>Kirim Pesan</Button>
+				<Button size="md-lg" variant="solid" type="submit" class="w-full" onclick={() => {}}>
+					{#snippet prefixIcon({ class: iconClass })}
+						<Send class={iconClass} />
+					{/snippet}
+					Kirim Pesan
+				</Button>
 			</form>
 		</Card>
 	</div>

@@ -80,7 +80,6 @@
 						<Button
 							variant="blank"
 							size="icon-md"
-							pointerEvents={false}
 							class="hidden rounded-2xl bg-primary/10 text-primary transition-transform group-hover:rotate-6 sm:inline-flex"
 						>
 							<feature.icon />
@@ -150,13 +149,17 @@
 
 					<Button
 						variant="solid"
-						size="md"
+						size="lg"
 						class="font-bold uppercase"
 						rounded
 						href={ctaHref}
 						target="_blank"
-						suffixIcon={CtaIcon}
 					>
+						{#snippet suffixIcon({ class: iconClass })}
+							{#if CtaIcon}
+								<CtaIcon class={iconClass} />
+							{/if}
+						{/snippet}
 						{ctaText}
 					</Button>
 				</div>

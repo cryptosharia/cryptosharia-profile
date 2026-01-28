@@ -86,7 +86,10 @@
 	</div>
 
 	<div class="mt-12 flex justify-center">
-		<Button variant="outline" href="/activities" rounded suffixIcon={ChevronRightIcon}>
+		<Button size="lg" variant="outline" href="/activities" rounded>
+			{#snippet suffixIcon({ class: iconClass })}
+				<ChevronRightIcon class={iconClass} />
+			{/snippet}
 			Lihat Semua Aktivitas
 		</Button>
 	</div>

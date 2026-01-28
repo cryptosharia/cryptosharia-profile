@@ -83,10 +83,13 @@
 				</p>
 			</div>
 			<div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
-				<Button size="sm-md" variant="solid" suffixIcon={NetworkIcon} href="/#ecosystem">
-					Lihat Ekosistem Kami
+				<Button size="md-lg" variant="solid" href="/#ecosystem">
+					{#snippet suffixIcon({ class: iconClass })}
+						<NetworkIcon class={iconClass} />
+					{/snippet}
+					Jelajahi Ekosistem
 				</Button>
-				<Button size="sm-md" variant="outline" href="/#contact">Hubungi Kami</Button>
+				<Button size="md-lg" variant="outline" href="/#contact">Hubungi Kami</Button>
 			</div>
 		</div>
 	</div>

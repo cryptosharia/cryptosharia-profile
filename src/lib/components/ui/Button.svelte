@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import { Button as ButtonPrimitive } from 'bits-ui';
-	import type { Component, Snippet } from 'svelte';
+	import type { Snippet } from 'svelte';
 
 	export type ButtonVariant =
 		| 'solid'
@@ -12,9 +12,10 @@
 		| 'link-ghost';
 
 	export type ButtonSize =
+		| 'lg'
 		| 'md'
 		| 'sm'
-		| 'sm-md'
+		| 'md-lg'
 		| 'icon-lg'
 		| 'icon-md-lg'
 		| 'icon-md'
@@ -25,22 +26,21 @@
 		variant?: ButtonVariant;
 		size?: ButtonSize;
 		rounded?: boolean;
-		pointerEvents?: boolean;
-		prefixIcon?: Component<Record<string, unknown>> | Snippet<[{ class: string }]>;
-		suffixIcon?: Component<Record<string, unknown>> | Snippet<[{ class: string }]>;
+		prefixIcon?: Snippet<[{ class: string }]>;
+		suffixIcon?: Snippet<[{ class: string }]>;
 	};
 </script>
 
 <script lang="ts">
 	import { Button } from 'bits-ui';
 	import { cn } from '$lib/utils';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	let {
 		children,
 		variant = 'solid',
 		size = 'md',
 		rounded = false,
-		pointerEvents = true,
 		prefixIcon: PrefixIcon,
 		suffixIcon: SuffixIcon,
 		class: className,
@@ -49,13 +49,14 @@
 
 	const base = [
 		/*tw*/ 'shrink-0 inline-flex items-center justify-center whitespace-nowrap font-semibold transition-all',
-		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none'
+		/*tw*/ 'disabled:pointer-events-none disabled:opacity-50 select-none'
 	];
 
 	const sizes = $derived({
-		sm: /*tw*/ `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
-		md: /*tw*/ `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
-		'sm-md': /*tw*/ `fl-h-10/12 fl-px-4/6 fl-text-sm/base fl-gap-1.5/2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		sm: /*tw*/ `h-8 px-3 text-xs gap-1 active:scale-95 ${rounded ? 'rounded-full' : 'rounded-md'}`,
+		md: /*tw*/ `h-10 px-4 text-sm gap-1.5 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-lg'}`,
+		lg: /*tw*/ `h-12 px-6 text-base gap-2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
+		'md-lg': /*tw*/ `fl-h-10/12 fl-px-4/6 fl-text-sm/base fl-gap-1.5/2 active:scale-90 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
 		'icon-lg': /*tw*/ `size-14 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-2xl'}`,
 		'icon-md-lg': /*tw*/ `fl-size-12/14 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-2xl'}`,
 		'icon-md': /*tw*/ `size-12 active:scale-80 ${rounded ? 'rounded-full' : 'rounded-xl'}`,
@@ -88,21 +89,24 @@
 		blank: ''
 	};
 
+	const isInteractive = $derived(!!(rest.onclick || rest.href));
+
 	const mergedClass = $derived(
 		cn(
 			base,
 			sizes[size as keyof typeof sizes],
 			variants[variant as keyof typeof variants],
-			!pointerEvents && 'pointer-events-none',
+			isInteractive ? 'cursor-pointer' : 'pointer-events-none',
 			className
 		)
 	);
 
 	const iconClasses = $derived(
 		cn(
-			size === 'sm' && /*tw*/ 'size-4.5',
-			size === 'md' && /*tw*/ 'size-5',
-			size === 'sm-md' && /*tw*/ 'fl-size-[1.125rem/1.25rem]',
+			size === 'sm' && /*tw*/ 'size-3.5',
+			size === 'md' && /*tw*/ 'size-4.5',
+			size === 'lg' && /*tw*/ 'size-5',
+			size === 'md-lg' && /*tw*/ 'fl-size-[1.125rem/1.25rem]',
 			size === 'icon-lg' && /*tw*/ 'size-6.5',
 			size === 'icon-md-lg' && /*tw*/ 'fl-size-[1.375rem/1.625rem]',
 			size === 'icon-md' && /*tw*/ 'size-5.5',
@@ -112,24 +116,18 @@
 	);
 </script>
 
-<Button.Root class={mergedClass} {...rest}>
-	{#if PrefixIcon}
-		{#if typeof PrefixIcon === 'function'}
-			{@const Icon = PrefixIcon as Snippet<[{ class: string }]>}
-			{@render Icon({ class: iconClasses })}
-		{:else}
-			{@const Icon = PrefixIcon as Component<Record<string, unknown>>}
-			<Icon class={iconClasses} />
-		{/if}
-	{/if}
+{#snippet content()}
+	{@render PrefixIcon?.({ class: iconClasses })}
 	{@render children?.()}
-	{#if SuffixIcon}
-		{#if typeof SuffixIcon === 'function'}
-			{@const Icon = SuffixIcon as Snippet<[{ class: string }]>}
-			{@render Icon({ class: iconClasses })}
-		{:else}
-			{@const Icon = SuffixIcon as Component<Record<string, unknown>>}
-			<Icon class={iconClasses} />
-		{/if}
-	{/if}
-</Button.Root>
+	{@render SuffixIcon?.({ class: iconClasses })}
+{/snippet}
+
+{#if rest.onclick || rest.href}
+	<Button.Root class={mergedClass} {...rest}>
+		{@render content()}
+	</Button.Root>
+{:else}
+	<span class={mergedClass} {...rest as HTMLAttributes<HTMLSpanElement>}>
+		{@render content()}
+	</span>
+{/if}

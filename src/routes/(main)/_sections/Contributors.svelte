@@ -180,7 +180,9 @@
 					<div class="flex gap-2">
 						{#each member.links.slice(0, 3) as link (link.icon)}
 							<Button variant="ghost" size="icon-sm" href={link.href} target="_blank" rounded>
-								<link.icon size={16} />
+								{#snippet prefixIcon({ class: iconClass })}
+									<link.icon class={iconClass} />
+								{/snippet}
 							</Button>
 						{/each}
 					</div>
@@ -220,14 +222,10 @@
 						<p class="mb-3 text-xs font-bold tracking-wider text-faded uppercase">Links</p>
 						<div class="flex flex-wrap gap-2">
 							{#each selectedContributor.links as link (link.icon)}
-								<Button
-									variant="soft"
-									size="sm"
-									prefixIcon={link.icon}
-									href={link.href}
-									target="_blank"
-									rounded
-								>
+								<Button variant="soft" size="sm" href={link.href} target="_blank" rounded>
+									{#snippet prefixIcon({ class: iconClass }: { class: string })}
+										<link.icon class={iconClass} />
+									{/snippet}
 									{link.label}
 								</Button>
 							{/each}
@@ -239,7 +237,10 @@
 	</Dialog>
 
 	<div class="mt-12 flex justify-center">
-		<Button variant="outline" rounded href="/contributors" suffixIcon={ChevronRightIcon}>
+		<Button size="lg" variant="outline" rounded href="/contributors">
+			{#snippet suffixIcon({ class: iconClass })}
+				<ChevronRightIcon class={iconClass} />
+			{/snippet}
 			Lihat Semua Kontributor
 		</Button>
 	</div>

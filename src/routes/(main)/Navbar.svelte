@@ -38,7 +38,7 @@
 		<Button
 			rounded
 			variant="solid"
-			size="sm"
+			size="md"
 			href={link.href}
 			onclick={closeDrawer}
 			class="font-semibold {isMobile && 'w-full'}"
@@ -48,7 +48,7 @@
 	{:else}
 		<Button
 			variant="link-ghost"
-			size="sm"
+			size="md"
 			href={link.href}
 			onclick={closeDrawer}
 			class="px-0 hover:no-underline {isActive && 'text-primary'} {isMobile && 'w-full'}"
