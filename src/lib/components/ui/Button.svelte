@@ -89,7 +89,7 @@
 		blank: ''
 	};
 
-	const isInteractive = $derived(!!(rest.onclick || rest.href));
+	const isInteractive = $derived(!!(rest.onclick || rest.href || rest.type));
 
 	const mergedClass = $derived(
 		cn(
@@ -122,7 +122,7 @@
 	{@render SuffixIcon?.({ class: iconClasses })}
 {/snippet}
 
-{#if rest.onclick || rest.href}
+{#if rest.onclick || rest.href || rest.type}
 	<Button.Root class={mergedClass} {...rest}>
 		{@render content()}
 	</Button.Root>

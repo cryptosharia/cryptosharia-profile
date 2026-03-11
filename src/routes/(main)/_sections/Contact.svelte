@@ -5,6 +5,9 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import { MapPin, MessageCircle, Mail, Send } from '@lucide/svelte';
 	import Card from '$lib/components/ui/Card.svelte';
+	import { page } from '$app/state';
+	import { enhance } from '$app/forms';
+	import type { SubmitFunction } from '@sveltejs/kit';
 
 	const contactInfo = [
 		{
@@ -26,6 +29,25 @@
 			icon: MapPin
 		}
 	];
+
+	const formState = $derived(
+		page.form as { success?: boolean; error?: string; fields?: Record<string, string> } | null
+	);
+
+	let isSubmitting = $state(false);
+
+	const enhanceSendMessage: SubmitFunction = ({ formElement }) => {
+		isSubmitting = true;
+
+		return async ({ result, update }) => {
+			await update();
+			isSubmitting = false;
+
+			if (result.type === 'success' && (result.data as { success?: boolean } | null)?.success) {
+				formElement.reset();
+			}
+		};
+	};
 </script>
 
 <PageSection
@@ -70,25 +92,70 @@
 
 		<!-- Right: Contact Form -->
 		<Card class="fl-p-5/8">
-			<form onsubmit={(e) => e.preventDefault()} class="space-y-5">
+			<form
+				method="POST"
+				action="?/sendMessage#contact"
+				class="space-y-5"
+				aria-busy={isSubmitting}
+				use:enhance={enhanceSendMessage}
+			>
 				<Field label="Nama" forId="name">
-					<InputField id="name" placeholder="Masukkan nama anda" />
+					<InputField
+						id="name"
+						name="name"
+						required
+						disabled={isSubmitting}
+						autocomplete="name"
+						placeholder="Masukkan nama anda"
+						value={formState?.fields?.name ?? ''}
+					/>
 				</Field>
 
 				<Field label="Alamat Email" forId="email">
-					<InputField id="email" type="email" placeholder="Masukkan alamat email anda" />
+					<InputField
+						id="email"
+						name="email"
+						type="email"
+						required
+						disabled={isSubmitting}
+						autocomplete="email"
+						placeholder="Masukkan alamat email anda"
+						value={formState?.fields?.email ?? ''}
+					/>
 				</Field>
 
 				<Field label="Pesan" forId="message">
-					<InputField id="message" multiline placeholder="Tulis pesan anda di sini..." />
+					<InputField
+						id="message"
+						name="message"
+						multiline
+						required
+						disabled={isSubmitting}
+						placeholder="Tulis pesan anda di sini..."
+						value={formState?.fields?.message ?? ''}
+					/>
 				</Field>
 
-				<Button size="md-lg" variant="solid" type="submit" class="w-full" onclick={() => {}}>
+				<Button size="md-lg" variant="solid" type="submit" class="w-full" disabled={isSubmitting}>
 					{#snippet prefixIcon({ class: iconClass })}
 						<Send class={iconClass} />
 					{/snippet}
-					Kirim Pesan
+					{isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
 				</Button>
+
+				{#if formState?.success}
+					<div
+						class="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300"
+					>
+						Pesan berhasil dikirim. Terima kasih!
+					</div>
+				{:else if formState?.error}
+					<div
+						class="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300"
+					>
+						{formState.error}
+					</div>
+				{/if}
 			</form>
 		</Card>
 	</div>
