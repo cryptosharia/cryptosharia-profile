@@ -18,7 +18,7 @@
 	import sarahImg from '$lib/assets/cto_sarah.avif';
 	import michaelImg from '$lib/assets/coo_michael.png';
 	import emilyImg from '$lib/assets/cfo_emily.png';
-	import daffaImg from '$lib/assets/dev_daffa.png';
+	import marcusImg from '$lib/assets/dev_marcus.png';
 	import lisaImg from '$lib/assets/chro_lisa.png';
 	import charlieImg from '$lib/assets/hor_charlie.avif';
 	import davidImg from '$lib/assets/cmo_david.jpeg';
@@ -102,10 +102,10 @@
 			]
 		},
 		{
-			name: 'Daffa Ilhami',
-			role: 'Fullstack Lead Developer',
-			bio: 'Building robust and scalable web applications, Daffa is dedicated to creating the best user experience for our community.',
-			image: daffaImg,
+			name: 'Marcus Chen',
+			role: 'Lead Developer',
+			bio: 'Building robust and scalable web applications, Marcus is dedicated to creating the best user experience for our community.',
+			image: marcusImg,
 			links: [
 				{ icon: Globe, label: 'Website', href: 'https://mdaffailhami.my.id' },
 				{ icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/mdaffailhami' },
