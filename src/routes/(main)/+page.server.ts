@@ -1,6 +1,27 @@
 import { fail, type Actions } from '@sveltejs/kit';
+import type { RequestEvent } from '@sveltejs/kit';
 
 import { createServerCsApiClient } from '$lib/api/cs-api.server';
+import { toActivityCardItem } from '$lib/activities/activity-card';
+
+export const load = async ({ fetch }: RequestEvent) => {
+	const client = createServerCsApiClient(fetch);
+
+	const { data, error } = await client.GET('/posts', {
+		params: {
+			query: {
+				statuses: ['published'],
+				sections: ['activity'],
+				limit: 4,
+				page: 1
+			}
+		}
+	});
+
+	return {
+		activities: error ? [] : (data?.data?.items ?? []).map(toActivityCardItem)
+	};
+};
 
 function readFormString(form: FormData, key: string) {
 	const value = form.get(key);

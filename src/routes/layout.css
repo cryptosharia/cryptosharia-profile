@@ -4,6 +4,7 @@
 @import 'tailwindcss';
 @plugin 'fluid-tailwindcss';
 @plugin 'tailwindcss-animate';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -85,4 +86,39 @@
 
 @utility gradient-surface {
 	@apply bg-surface bg-linear-to-br from-primary-50/50 to-surface dark:from-primary-950/15;
+}
+
+@utility prose-cs {
+	--tw-prose-body: var(--color-foreground);
+	--tw-prose-headings: var(--color-foreground);
+	--tw-prose-lead: var(--color-faded);
+	--tw-prose-links: var(--color-primary);
+	--tw-prose-bold: var(--color-foreground);
+	--tw-prose-counters: var(--color-faded);
+	--tw-prose-bullets: var(--color-faded);
+	--tw-prose-hr: var(--color-line);
+	--tw-prose-quotes: var(--color-foreground);
+	--tw-prose-quote-borders: var(--color-primary);
+	--tw-prose-captions: var(--color-faded);
+	--tw-prose-code: var(--color-primary);
+	--tw-prose-pre-code: var(--color-foreground);
+	--tw-prose-pre-bg: var(--color-surface);
+	--tw-prose-th-borders: var(--color-line);
+	--tw-prose-td-borders: var(--color-line);
+	--tw-prose-invert-body: var(--color-foreground);
+	--tw-prose-invert-headings: var(--color-foreground);
+	--tw-prose-invert-lead: var(--color-faded);
+	--tw-prose-invert-links: var(--color-primary);
+	--tw-prose-invert-bold: var(--color-foreground);
+	--tw-prose-invert-counters: var(--color-faded);
+	--tw-prose-invert-bullets: var(--color-faded);
+	--tw-prose-invert-hr: var(--color-line);
+	--tw-prose-invert-quotes: var(--color-foreground);
+	--tw-prose-invert-quote-borders: var(--color-primary);
+	--tw-prose-invert-captions: var(--color-faded);
+	--tw-prose-invert-code: var(--color-primary);
+	--tw-prose-invert-pre-code: var(--color-foreground);
+	--tw-prose-invert-pre-bg: var(--color-surface);
+	--tw-prose-invert-th-borders: var(--color-line);
+	--tw-prose-invert-td-borders: var(--color-line);
 }
