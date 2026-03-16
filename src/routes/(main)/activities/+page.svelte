@@ -2,7 +2,7 @@
 	import PageSection from '$lib/components/PageSection.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from '@lucide/svelte';
+	import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@lucide/svelte';
 	import type { PageData } from './$types';
 	import { formatDateOnly } from '$lib/format/dates';
 
@@ -35,8 +35,15 @@
 					gradient="tl"
 				>
 					<div
-						class="aspect-video w-full overflow-hidden bg-linear-to-br from-primary/10 via-transparent to-primary/5"
+						class="relative aspect-video w-full overflow-hidden bg-linear-to-br from-primary/10 via-transparent to-primary/5"
 					>
+						{#if item.isFeatured}
+							<div
+								class="absolute top-2 right-2 z-10 rounded-full bg-primary p-1.5 text-on-primary"
+							>
+								<StarIcon size={14} class="fill-on-primary" />
+							</div>
+						{/if}
 						{#if item.coverImageUrl}
 							<img
 								src={item.coverImageUrl}

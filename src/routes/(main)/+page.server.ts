@@ -2,7 +2,7 @@ import { fail, type Actions } from '@sveltejs/kit';
 import type { RequestEvent } from '@sveltejs/kit';
 
 import { createServerCsApiClient } from '$lib/api/cs-api.server';
-import { toActivityCardItem } from '$lib/activities/activity-card';
+import { toActivityCardItem, sortByFeaturedAndDate } from '$lib/activities/activity-card';
 
 export const load = async ({ fetch }: RequestEvent) => {
 	const client = createServerCsApiClient(fetch);
@@ -18,8 +18,11 @@ export const load = async ({ fetch }: RequestEvent) => {
 		}
 	});
 
+	const items = error ? [] : (data?.data?.items ?? []).map(toActivityCardItem);
+	const sortedItems = sortByFeaturedAndDate(items);
+
 	return {
-		activities: error ? [] : (data?.data?.items ?? []).map(toActivityCardItem)
+		activities: sortedItems
 	};
 };
 

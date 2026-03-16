@@ -2,7 +2,7 @@ import { error as kitError } from '@sveltejs/kit';
 import type { RequestEvent } from '@sveltejs/kit';
 
 import { createServerCsApiClient } from '$lib/api/cs-api.server';
-import { toActivityCardItem } from '$lib/activities/activity-card';
+import { toActivityCardItem, sortByFeaturedAndDate } from '$lib/activities/activity-card';
 
 export const load = async ({ fetch, params }: RequestEvent) => {
 	const slug = params.slug;
@@ -28,14 +28,17 @@ export const load = async ({ fetch, params }: RequestEvent) => {
 				statuses: ['published'],
 				sections: ['activity'],
 				exclude: [slug],
-				limit: 4,
+				limit: 6,
 				page: 1
 			}
 		}
 	});
 
+	const otherItems = (listData?.data?.items ?? []).map(toActivityCardItem);
+	const sortedOtherItems = sortByFeaturedAndDate(otherItems);
+
 	return {
 		post: data.data,
-		otherActivities: (listData?.data?.items ?? []).map(toActivityCardItem)
+		otherActivities: sortedOtherItems
 	};
 };
