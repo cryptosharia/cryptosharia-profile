@@ -10,9 +10,9 @@
 	let isOpen = $state(false);
 	const pageScroll = streamPageScroll();
 
-	const isAtTopOrBottom = $derived.by(() => {
-		if (!browser) return true;
-		return pageScroll.isAtTop || pageScroll.isAtBottom || pageScroll.isScrolling;
+	const shouldHide = $derived.by(() => {
+		if (!browser) return false;
+		return (pageScroll.isAtBottom || pageScroll.isScrolling) && !isOpen;
 	});
 
 	function toggle() {
@@ -60,7 +60,7 @@
 		onclick={toggle}
 		class={cn(
 			'relative shadow-lg duration-500',
-			isAtTopOrBottom && !isOpen ? 'translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
+			shouldHide ? 'translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
 		)}
 	>
 		{#snippet prefixIcon({ class: iconClass }: { class: string })}

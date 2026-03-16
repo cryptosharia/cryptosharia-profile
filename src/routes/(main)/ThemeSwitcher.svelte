@@ -9,9 +9,7 @@
 	const theme = useTheme();
 	const pageScroll = streamPageScroll();
 
-	const isAtTopOrBottom = $derived(
-		pageScroll.isAtTop || pageScroll.isAtBottom || pageScroll.isScrolling
-	);
+	const shouldHide = $derived(pageScroll.isAtBottom || pageScroll.isScrolling);
 
 	function handleClick() {
 		switch (theme.theme) {
@@ -35,7 +33,7 @@
 	rounded
 	class={cn(
 		'fixed bottom-3 left-3 z-50 duration-500',
-		isAtTopOrBottom ? '-translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
+		shouldHide ? '-translate-x-15 opacity-0' : 'translate-x-0 opacity-100'
 	)}
 >
 	{#snippet prefixIcon({ class: iconClass }: { class: string })}
