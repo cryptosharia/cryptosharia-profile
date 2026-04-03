@@ -15,6 +15,7 @@
 
 	let { data }: { data: PageData } = $props();
 	const post = $derived(data.post);
+	const interactive = false;
 	const otherActivities = $derived(
 		(data as { otherActivities?: ActivityCardItem[] }).otherActivities ?? []
 	);
@@ -33,7 +34,7 @@
 <main>
 	<PageSection as="section">
 		<div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr] lg:gap-6">
-			<Card class="overflow-hidden">
+			<Card class="overflow-hidden" {interactive}>
 				<div
 					class="aspect-video w-full overflow-hidden bg-linear-to-br from-primary/10 via-transparent to-primary/5"
 				>

@@ -19,13 +19,21 @@
 
 	type Props = ButtonPrimitive.RootProps & {
 		gradient?: GradientDirection;
+		interactive?: boolean;
 	};
 
-	let { class: className, gradient = 'br', children, ...rest }: Props = $props();
+	let {
+		class: className,
+		gradient = 'br',
+		interactive = true,
+		children,
+		...rest
+	}: Props = $props();
 
 	const mergedClass = $derived(
 		cn(
-			'rounded-3xl border gradient-surface text-start text-faded shadow-md transition-all hover:scale-102 hover:shadow-lg',
+			'rounded-3xl border gradient-surface text-start text-faded shadow-md transition-all',
+			interactive && 'hover:scale-102 hover:shadow-lg',
 			gradientMap[gradient],
 			(rest.onclick || rest.href) && 'cursor-pointer',
 			className
