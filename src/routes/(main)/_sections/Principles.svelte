@@ -2,44 +2,55 @@
 	import PageSection from '$lib/components/PageSection.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { Heart, Users, Lightbulb, Award, Shield, Rocket } from '@lucide/svelte';
+	import {
+		Heart,
+		Newspaper,
+		ChartColumnIncreasing,
+		Users,
+		Lightbulb,
+		Rocket
+	} from '@lucide/svelte';
 
 	const principles = [
 		{
-			title: 'Syariah Compliance',
+			title: 'Kepatuhan Syariah',
 			description:
-				'Kami memastikan semua layanan dan produk kami sesuai dengan prinsip-prinsip syariah Islam.',
+				'Memastikan setiap layanan, produk, dan instrumen investasi selaras dengan prinsip fiqh muamalah untuk menjaga keberkahan aset.',
 			icon: Heart,
 			class: 'bg-red-500/10 text-red-500'
 		},
 		{
-			title: 'Komunitas',
+			title: 'Media Terpercaya',
 			description:
-				'Membangun komunitas yang solid dan saling mendukung dalam ekosistem crypto syariah.',
-			icon: Users,
+				'Menjadi sumber informasi utama yang akurat, obyektif, dan kredibel dalam menyajikan dinamika pasar kripto serta isu syariah terkini.',
+			icon: Newspaper,
 			class: 'bg-blue-600/10 text-blue-600'
 		},
 		{
-			title: 'Edukasi',
-			description: 'Memberikan edukasi berkualitas tentang crypto dan blockchain sesuai syariah.',
-			icon: Lightbulb,
+			title: 'Literasi Keuangan Digital',
+			description:
+				'Meningkatkan kecerdasan finansial komunitas dalam mengelola aset digital secara bijak, strategis, dan sesuai kaidah pengelolaan harta dalam Islam.',
+			icon: ChartColumnIncreasing,
 			class: 'bg-amber-500/10 text-amber-500'
 		},
 		{
-			title: 'Integritas',
-			description: 'Menjunjung tinggi kejujuran dan transparansi dalam setiap aspek operasional.',
-			icon: Award,
+			title: 'Pemberdayaan Komunitas',
+			description:
+				'Membangun ekosistem yang inklusif, solid, dan saling mendukung guna menciptakan kekuatan ekonomi kolektif bagi para anggota.',
+			icon: Users,
 			class: 'bg-purple-500/10 text-purple-500'
 		},
 		{
-			title: 'Keamanan',
-			description: 'Mengutamakan keamanan dan perlindungan aset serta data komunitas kami.',
-			icon: Shield,
+			title: 'Edukasi Berkelanjutan',
+			description:
+				'Menyajikan literasi berkualitas tinggi mengenai teknologi blockchain dan kripto yang relevan serta mudah dipahami dari sudut pandang syariah.',
+			icon: Lightbulb,
 			class: 'bg-emerald-500/10 text-emerald-500'
 		},
 		{
-			title: 'Inovasi',
-			description: 'Terus berinovasi untuk menghadirkan solusi crypto syariah yang lebih baik.',
+			title: 'Inovasi Terukur',
+			description:
+				'Terus beradaptasi dan menghadirkan solusi teknologi mutakhir yang relevan dengan kebutuhan finansial digital masa kini.',
 			icon: Rocket,
 			class: 'bg-orange-600/10 text-orange-600'
 		}
@@ -47,7 +58,7 @@
 </script>
 
 <PageSection
-	id="principles"
+	id="prinsip"
 	title="Prinsip Kami"
 	subtitle="Prinsip-prinsip yang memandu setiap langkah kami dalam membangun ekosistem crypto syariah"
 >

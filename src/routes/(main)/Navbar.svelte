@@ -20,12 +20,12 @@
 
 	// Derived navigation links based on current route
 	const links: Link[] = $derived([
-		{ text: 'Prinsip', href: '/#principles' },
-		{ text: 'Kontributor', href: activeSegment === '/' ? '/#contributors' : '/contributors' },
-		{ text: 'Aktivitas', href: activeSegment === '/' ? '/#activities' : '/activities' },
+		{ text: 'Prinsip', href: '/#prinsip' },
+		{ text: 'Pengurus', href: activeSegment === '/' ? '/#pengurus' : '/pengurus' },
+		{ text: 'Aktivitas', href: activeSegment === '/' ? '/#aktivitas' : '/aktivitas' },
 		{ text: 'Media', href: '/#media' },
 		{ text: 'Discord', href: '/#discord' },
-		{ text: 'Kontak', href: '/#contact' }
+		{ text: 'Kontak', href: '/#kontak' }
 	]);
 
 	function closeDrawer() {

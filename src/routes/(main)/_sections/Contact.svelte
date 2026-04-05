@@ -18,14 +18,15 @@
 		},
 		{
 			title: 'Email',
-			content: 'cryptoshariaforum@gmail.com',
-			href: 'mailto:cryptoshariaforum@gmail.com',
+			content: 'contact@cryptosharia.id',
+			href: 'mailto:contact@cryptosharia.id',
 			icon: Mail
 		},
 		{
 			title: 'Alamat',
-			content: '123 Business Street, Suite 100\nJakarta, Indonesia 12345',
-			href: 'https://maps.google.com',
+			content:
+				'Crypto Sharia Headquarters Ruko Tengah, Jl. Wibawa Mukti II No. 6, RT.007/RW.002,\nJatiluhur, Kec. Jatiasih, Kota Bekasi, Jawa Barat 17425',
+			href: 'https://maps.google.com/?q=Jl.+Wibawa+Mukti+II+No.+6,+Jatiluhur,+Jatiasih,+Kota+Bekasi',
 			icon: MapPin
 		}
 	];
@@ -51,9 +52,9 @@
 </script>
 
 <PageSection
-	id="contact"
+	id="kontak"
 	title="Hubungi Kami"
-	subtitle="Punya pertanyaan? Kami siap membantu Anda. Kirim pesan dan kami akan merespons secepat mungkin."
+	subtitle="Punya pertanyaan mengenai fitur, layanan, atau kolaborasi? Tim kami siap memberikan informasi yang Anda butuhkan dengan cepat dan transparan."
 	headerClass="mb-20"
 >
 	<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -94,7 +95,7 @@
 		<Card class="fl-p-5/8">
 			<form
 				method="POST"
-				action="?/sendMessage#contact"
+				action="?/sendMessage#kontak"
 				class="space-y-5"
 				aria-busy={isSubmitting}
 				use:enhance={enhanceSendMessage}

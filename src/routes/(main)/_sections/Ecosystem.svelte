@@ -10,7 +10,7 @@
 		Zap,
 		BarChart3
 	} from '@lucide/svelte';
-	import cryptoShariaMediaImg from '$lib/assets/discord-premium.webp';
+	import cryptoShariaMediaImg from '$lib/assets/cryptosharia-media.png';
 	import discordPremiumImg from '$lib/assets/discord-premium.webp';
 
 	const mediaFeatures = [
@@ -80,7 +80,7 @@
 
 <!-- Ecosystem / Product Stack -->
 <section
-	id="ecosystem"
+	id="ekosistem"
 	class="relative my-16 overflow-hidden rounded-[3rem] border-y border-primary/5 bg-primary/5 py-16 shadow-inner dark:bg-primary/10"
 >
 	<!-- Decorative Background Element -->
@@ -124,7 +124,7 @@
 		benefitsDescription="Nikmati pengalaman yang lebih baik dengan dukungan prioritas, konten eksklusif, dan kesempatan untuk terhubung langsung with tim kami."
 		benefits={discordBenefits}
 		ctaText="Gabung Discord Premium"
-		ctaHref="https://discord.gg/cryptosharia"
+		ctaHref="https://berbagi.link/cryptosharia?tab=tab-marketplace"
 		ctaIcon={Zap}
 	/>
 </section>

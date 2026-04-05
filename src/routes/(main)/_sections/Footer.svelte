@@ -6,15 +6,15 @@
 
 	const quickLinks = [
 		{ name: 'Tentang Kami', href: '/' },
-		{ name: 'Prinsip Kami', href: '/#principles' },
-		{ name: 'Kontributor', href: '/#contributors' },
-		{ name: 'Aktivitas', href: '/#activities' }
+		{ name: 'Prinsip Kami', href: '/#prinsip' },
+		{ name: 'Pengurus', href: '/#pengurus' },
+		{ name: 'Aktivitas', href: '/#aktivitas' }
 	];
 
 	const services = [
-		{ name: 'CryptoSharia Media', href: '/#cryptosharia-media' },
-		{ name: 'Discord Premium', href: '/#discord-premium' },
-		{ name: 'Hubungi Kami', href: '#contact' }
+		{ name: 'CryptoSharia Media', href: '/#media' },
+		{ name: 'Discord Premium', href: '/#discord' },
+		{ name: 'Hubungi Kami', href: '/#kontak' }
 	];
 
 	const socials = [

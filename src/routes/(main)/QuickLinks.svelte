@@ -23,13 +23,13 @@
 		{
 			label: 'WhatsApp Community',
 			icon: MessageCircleIcon,
-			href: '#',
+			href: 'https://chat.whatsapp.com/EkyYn2gmXVN7tspbMvz6fx',
 			color: 'bg-green-500 text-white'
 		},
 		{
 			label: 'Discord Community',
 			icon: MessageCircleIcon,
-			href: '#',
+			href: 'https://discord.gg/raBFJtB4ja',
 			color: 'bg-blue-700 text-white'
 		}
 	];

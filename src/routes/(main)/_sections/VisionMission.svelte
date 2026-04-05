@@ -8,7 +8,7 @@
 		{
 			title: 'Visi',
 			content:
-				'Menjadi platform terdepan dalam ekosistem cryptocurrency syariah di dunia, memberikan solusi keuangan digital yang halal, transparan, dan inovatif untuk komunitas Muslim global serta menjadi rujukan utama dalam edukasi crypto berbasis syariah.',
+				'Menjadi perusahaan media dan riset kripto syariah terbesar di dunia yang menjadi rujukan utama bagi umat Muslim dalam berinvestasi di ekonomi digital.',
 			Icon: Eye,
 			iconClass: 'bg-purple-600 text-white',
 			titleClass: 'text-purple-600',
@@ -17,7 +17,7 @@
 		{
 			title: 'Misi',
 			content:
-				'Menyediakan edukasi berkualitas tentang cryptocurrency dan blockchain yang sesuai dengan prinsip syariah, membangun komunitas yang solid, serta mengembangkan ekosistem crypto halal yang berkelanjutan dan bermanfaat bagi umat.',
+				'Menyediakan konten edukasi kripto yang mudah dipahami dan sesuai syariah, mengembangkan komunitas yang aktif dan inklusif, memberikan analisis serta riset market yang akurat, dan menciptakan solusi digital agar masyarakat dapat bertransisi ke ekonomi berbasis blockchain secara aman.',
 			Icon: Target,
 			iconClass: 'bg-blue-600 text-white',
 			titleClass: 'text-blue-600',

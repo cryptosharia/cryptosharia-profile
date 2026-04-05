@@ -73,23 +73,26 @@
 			<div class="space-y-4">
 				<h1 class="font-serif fl-text-4xl/5xl font-bold text-primary">CryptoSharia</h1>
 				<p class="fl-text-base/lg leading-relaxed max-md:text-justify">
-					<b>CryptoSharia</b> adalah organisasi yang berdedikasi untuk menggabungkan teknologi blockchain
-					dan cryptocurrency dengan prinsip-prinsip syariah Islam. Kami berkomitmen untuk memberikan solusi
-					crypto yang halal dan sesuai dengan nilai-nilai Islam.
+					<b>Crypto Sharia</b> adalah platform komunitas yang mengintegrasikan edukasi, literasi, dan
+					inovasi aset digital dengan prinsip kepatuhan syariah Islam. Platform ini hadir sebagai panduan
+					strategis bagi investor untuk menavigasi pasar kripto dan teknologi blockchain secara etis,
+					transparan, serta bebas dari unsur yang dilarang dalam fiqh muamalah.
 				</p>
 				<p class="fl-text-base/lg leading-relaxed max-md:text-justify">
-					Dengan fokus pada edukasi, inovasi, dan kepatuhan syariah, kami membantu komunitas Muslim
-					memahami dan memanfaatkan teknologi crypto secara bertanggung jawab.
+					Sebagai pusat inovasi dan media, Crypto Sharia berkomitmen membangun ekosistem ekonomi
+					digital yang inklusif demi kemaslahatan umat. Dengan menjembatani teknologi modern dan
+					nilai-nilai spiritual, platform ini memastikan bahwa investasi aset masa depan tetap
+					berjalan selaras dengan prinsip keberkahan dan keamanan syar'i.
 				</p>
 			</div>
 			<div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-start">
-				<Button size="md-lg" variant="solid" href="/#ecosystem">
+				<Button size="md-lg" variant="solid" href="/#ekosistem">
 					{#snippet suffixIcon({ class: iconClass })}
 						<NetworkIcon class={iconClass} />
 					{/snippet}
 					Jelajahi Ekosistem
 				</Button>
-				<Button size="md-lg" variant="outline" href="/#contact">Hubungi Kami</Button>
+				<Button size="md-lg" variant="outline" href="/#kontak">Hubungi Kami</Button>
 			</div>
 		</div>
 	</div>

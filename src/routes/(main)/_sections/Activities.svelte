@@ -17,14 +17,14 @@
 </script>
 
 <PageSection
-	id="activities"
+	id="aktivitas"
 	title="Aktivitas Kami"
 	subtitle="Dokumentasi kegiatan, perkembangan produk, dan kontribusi kami dalam membangun ekosistem crypto syariah."
 >
 	<div class="grid grid-cols-1 fl-gap-3/6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each activities as activity, i (activity.id)}
 			<Card
-				href={`/activities/${activity.slug}`}
+				href={`/aktivitas/${activity.slug}`}
 				class="group flex flex-col overflow-hidden {i === 3 ? 'hidden sm:flex lg:hidden' : ''}"
 				gradient="tl"
 			>
@@ -83,7 +83,7 @@
 	</div>
 
 	<div class="mt-12 flex justify-center">
-		<Button size="lg" variant="outline" href="/activities" rounded>
+		<Button size="lg" variant="outline" href="/aktivitas" rounded>
 			{#snippet suffixIcon({ class: iconClass })}
 				<ChevronRightIcon class={iconClass} />
 			{/snippet}
