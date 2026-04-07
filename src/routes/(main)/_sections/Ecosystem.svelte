@@ -67,14 +67,15 @@
 	];
 
 	const discordBenefits = [
-		'Akses ke channel eksklusif',
-		'Dukungan prioritas dari tim kami',
-		'Akses awal ke fitur baru',
-		'Role dan badge khusus',
-		'Pengalaman bebas iklan',
-		'Event spesial dan giveaway',
-		'Komunikasi langsung dengan pimpinan',
-		'Sumber daya dan tools premium'
+		'Modul edukasi lengkap dari beginner hingga advanced',
+		'Strategi trading & tutorial praktis',
+		'Modul crypto berbasis syariah + fatwa',
+		'Update market harian',
+		'Insight crypto eksklusif & rekomendasi trade',
+		'Analisa global macro market',
+		'Diskusi private 2 arah',
+		'Akses research premium',
+		'Update portfolio mingguan'
 	];
 </script>
 

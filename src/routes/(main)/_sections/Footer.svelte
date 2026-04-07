@@ -1,7 +1,8 @@
 <script lang="ts">
 	import PageSection from '$lib/components/PageSection.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { Facebook, Twitter, Instagram, Linkedin, Youtube } from '@lucide/svelte';
+	import { Facebook, Instagram, Linkedin, Youtube } from '@lucide/svelte';
+	import BrandX from '$lib/components/icons/BrandX.svelte';
 	import CryptoShariaLogo from '$lib/components/CryptoShariaLogo.svelte';
 
 	const quickLinks = [
@@ -18,11 +19,11 @@
 	];
 
 	const socials = [
-		{ icon: Facebook, href: '#' },
-		{ icon: Twitter, href: '#' },
-		{ icon: Instagram, href: '#' },
-		{ icon: Linkedin, href: '#' },
-		{ icon: Youtube, href: '#' }
+		{ icon: Facebook, href: 'https://www.facebook.com/cryptosharia' },
+		{ icon: BrandX, href: 'https://x.com/cryptosharia_' },
+		{ icon: Instagram, href: 'https://www.instagram.com/cryptosharia' },
+		{ icon: Linkedin, href: 'https://www.linkedin.com/company/cryptosharia' },
+		{ icon: Youtube, href: 'https://www.youtube.com/@cryptosharia' }
 	];
 </script>
 
@@ -42,8 +43,8 @@
 		<div id="col" class="sm:order-1 lg:order-1 lg:col-span-4">
 			<CryptoShariaLogo size="lg" variant="type" />
 			<p class="text-sm leading-relaxed text-faded">
-				Membangun ekosistem crypto syariah yang halal, transparan, dan inovatif untuk komunitas
-				Muslim di Indonesia.
+				Menjadi perusahaan media dan riset kripto syariah terbesar di dunia yang menjadi rujukan
+				utama bagi umat Muslim dalam berinvestasi di ekonomi digital.
 			</p>
 		</div>
 
