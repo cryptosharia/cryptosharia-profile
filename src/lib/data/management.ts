@@ -1,14 +1,14 @@
-import devinImg from '$lib/assets/board-devin-halim-wijaya.png';
-import laksamanaImg from '$lib/assets/board-muhammad-laksamana-lelawangsa.png';
-import aliHasanImg from '$lib/assets/board-ali-hasan-bawazier.png';
-import deaSakaImg from '$lib/assets/board-dea-saka-kurnia-putra.png';
-import ayubImg from '$lib/assets/ceo-sholahuddin-al-ayyubi.png';
-import ghalibImg from '$lib/assets/coo-ghalib-ammar-ahsan.png';
-import haidarImg from '$lib/assets/cfo-habibullah-haidar-al-atsary.png';
-import fikriImg from '$lib/assets/csbo-muhammad-fikri-alfarizi.png';
-import bintangImg from '$lib/assets/cao-bintang-fajar-ramadhan.png';
-import rifatulImg from '$lib/assets/cmo-rifatul-widaad-khotibin-tamhid.png';
-import axellyoImg from '$lib/assets/cco-mokhamad-axellyo-ghani-adam.png';
+import devinImg from '$lib/assets/board-devin-halim-wijaya.webp';
+import laksamanaImg from '$lib/assets/board-muhammad-laksamana-lelawangsa.webp';
+import aliHasanImg from '$lib/assets/board-ali-hasan-bawazier.webp';
+import deaSakaImg from '$lib/assets/board-dea-saka-kurnia-putra.webp';
+import ayubImg from '$lib/assets/ceo-sholahuddin-al-ayyubi.webp';
+import ghalibImg from '$lib/assets/coo-ghalib-ammar-ahsan.webp';
+import haidarImg from '$lib/assets/cfo-habibullah-haidar-al-atsary.webp';
+import fikriImg from '$lib/assets/csbo-muhammad-fikri-alfarizi.webp';
+import bintangImg from '$lib/assets/cao-bintang-fajar-ramadhan.webp';
+import rifatulImg from '$lib/assets/cmo-rifatul-widaad-khotibin-tamhid.webp';
+import axellyoImg from '$lib/assets/cco-mokhamad-axellyo-ghani-adam.webp';
 
 export const managementMembers = [
 	{
