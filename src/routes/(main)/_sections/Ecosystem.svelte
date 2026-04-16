@@ -77,6 +77,29 @@
 		'Akses research premium',
 		'Update portfolio mingguan'
 	];
+
+	const discordPricingPlans = [
+		{
+			name: '3 Bulan',
+			oldPrice: 'Rp 950.000',
+			newPrice: 'Rp 750.000'
+		},
+		{
+			name: '6 Bulan',
+			oldPrice: 'Rp 1.000.000',
+			newPrice: 'Rp 900.000'
+		},
+		{
+			name: '1 Tahun',
+			oldPrice: 'Rp 1.750.000',
+			newPrice: 'Rp 1.500.000'
+		},
+		{
+			name: 'Lifetime',
+			oldPrice: 'Rp 12.000.000',
+			newPrice: 'Rp 8.000.000'
+		}
+	];
 </script>
 
 <!-- Ecosystem / Product Stack -->
@@ -124,6 +147,7 @@
 		benefitsTitle={`${''}Benefit <span class="text-primary italic">Komunitas Premium</span> Kami`}
 		benefitsDescription="Nikmati pengalaman yang lebih baik dengan dukungan prioritas, konten eksklusif, dan kesempatan untuk terhubung langsung with tim kami."
 		benefits={discordBenefits}
+		pricingPlans={discordPricingPlans}
 		ctaText="Gabung Discord Premium"
 		ctaHref="https://berbagi.link/cryptosharia?tab=tab-marketplace"
 		ctaIcon={Zap}

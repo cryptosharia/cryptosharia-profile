@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Hero from './_sections/Hero.svelte';
+	import QuickRedirects from './_sections/QuickRedirects.svelte';
 	import VisionMission from './_sections/VisionMission.svelte';
 	import Principles from './_sections/Principles.svelte';
 	import Management from './_sections/Management.svelte';
@@ -15,6 +16,7 @@
 	<Hero />
 	<VisionMission />
 	<Principles />
+	<QuickRedirects />
 	<Management />
 	<Activities activities={data.activities} />
 	<Ecosystem />

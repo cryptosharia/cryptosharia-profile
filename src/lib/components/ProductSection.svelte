@@ -12,6 +12,12 @@
 		description: string;
 	}
 
+	type PricingPlan = {
+		name: string;
+		oldPrice: string;
+		newPrice: string;
+	};
+
 	type Props = HTMLAttributes<HTMLElement> & {
 		primaryColor?: string;
 		title: string;
@@ -22,6 +28,7 @@
 		benefitsTitle: string;
 		benefitsDescription: string;
 		benefits: string[];
+		pricingPlans?: PricingPlan[];
 		ctaText: string;
 		ctaHref: string;
 		ctaIcon?: Component;
@@ -39,6 +46,7 @@
 		benefitsTitle,
 		benefitsDescription,
 		benefits,
+		pricingPlans,
 		ctaText,
 		ctaHref,
 		ctaIcon: CtaIcon,
@@ -165,5 +173,29 @@
 				</div>
 			</div>
 		</Card>
+
+		{#if pricingPlans?.length}
+			<div class="grid grid-cols-2 fl-gap-3/6 lg:grid-cols-4">
+				{#each pricingPlans as plan (plan.name)}
+					<Card class="relative flex flex-col gap-3 p-4 sm:gap-2.5 sm:p-5" gradient="none">
+						<div class="text-sm font-extrabold tracking-wide text-foreground uppercase">
+							{plan.name}
+						</div>
+
+						<div class="space-y-1">
+							<div class="text-xs text-faded">
+								<del class="decoration-2">{plan.oldPrice}</del>
+							</div>
+							<div
+								class="text-lg font-black tracking-tight"
+								style={primaryColor ? `color: ${primaryColor}` : ''}
+							>
+								{plan.newPrice}
+							</div>
+						</div>
+					</Card>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </section>
