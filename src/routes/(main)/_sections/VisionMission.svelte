@@ -8,7 +8,7 @@
 		{
 			title: 'Visi',
 			content:
-				'Menjadi perusahaan media dan riset kripto syariah terbesar di dunia yang menjadi rujukan utama bagi umat Muslim dalam berinvestasi di ekonomi digital.',
+				'Menjadi platform media dan riset kripto syariah terbesar di dunia yang menjadi rujukan utama bagi umat Muslim dalam berinvestasi di ekonomi digital.',
 			Icon: Eye,
 			iconClass: 'bg-purple-600 text-white',
 			titleClass: 'text-purple-600',

@@ -73,10 +73,10 @@
 			<div class="space-y-4">
 				<h1 class="font-serif fl-text-4xl/5xl font-bold text-primary">CryptoSharia</h1>
 				<p class="fl-text-base/lg leading-relaxed max-md:text-justify">
-					<b>Crypto Sharia</b> adalah platform komunitas yang mengintegrasikan edukasi, literasi, dan
-					inovasi aset digital dengan prinsip kepatuhan syariah Islam. Platform ini hadir sebagai panduan
-					strategis bagi investor untuk menavigasi pasar kripto dan teknologi blockchain secara etis,
-					transparan, serta bebas dari unsur yang dilarang dalam fiqh muamalah.
+					<b>Crypto Sharia</b> adalah platform yang mengintegrasikan edukasi, literasi, dan inovasi aset
+					digital dengan prinsip kepatuhan syariah Islam. Platform ini hadir sebagai panduan strategis
+					bagi investor untuk menavigasi pasar kripto dan teknologi blockchain secara etis, transparan,
+					serta bebas dari unsur yang dilarang dalam fiqh muamalah.
 				</p>
 				<p class="fl-text-base/lg leading-relaxed max-md:text-justify">
 					Sebagai pusat inovasi dan media, Crypto Sharia berkomitmen membangun ekosistem ekonomi

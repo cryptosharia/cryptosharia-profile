@@ -14,7 +14,7 @@
 
 	const services = [
 		{ name: 'CryptoSharia Media', href: '/#media' },
-		{ name: 'Discord Premium', href: '/#discord' },
+		{ name: 'Member Premium', href: '/#discord' },
 		{ name: 'Hubungi Kami', href: '/#kontak' }
 	];
 
@@ -43,8 +43,8 @@
 		<div id="col" class="sm:order-1 lg:order-1 lg:col-span-4">
 			<CryptoShariaLogo size="lg" variant="type" />
 			<p class="text-sm leading-relaxed text-faded">
-				Menjadi perusahaan media dan riset kripto syariah terbesar di dunia yang menjadi rujukan
-				utama bagi umat Muslim dalam berinvestasi di ekonomi digital.
+				Menjadi platform media dan riset kripto syariah terbesar di dunia yang menjadi rujukan utama
+				bagi umat Muslim dalam berinvestasi di ekonomi digital.
 			</p>
 		</div>
 

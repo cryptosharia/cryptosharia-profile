@@ -139,16 +139,16 @@
 	<ProductSection
 		primaryColor="#5865F2"
 		id="discord"
-		title="Discord"
+		title="Member"
 		titleHighlight="Premium"
-		subtitle="Bergabunglah dengan komunitas Discord eksklusif kami, lalu dapatkan benefitnya"
+		subtitle="Bergabunglah dengan member eksklusif kami, lalu dapatkan benefitnya"
 		features={discordFeatures}
 		posterSrc={discordPremiumImg}
 		benefitsTitle={`${''}Benefit <span class="text-primary italic">Komunitas Premium</span> Kami`}
 		benefitsDescription="Nikmati pengalaman yang lebih baik dengan dukungan prioritas, konten eksklusif, dan kesempatan untuk terhubung langsung with tim kami."
 		benefits={discordBenefits}
 		pricingPlans={discordPricingPlans}
-		ctaText="Gabung Discord Premium"
+		ctaText="Gabung Member Premium"
 		ctaHref="https://berbagi.link/cryptosharia?tab=tab-marketplace"
 		ctaIcon={Zap}
 	/>

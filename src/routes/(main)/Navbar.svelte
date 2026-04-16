@@ -24,7 +24,7 @@
 		{ text: 'Pengurus', href: activeSegment === '/' ? '/#pengurus' : '/pengurus' },
 		{ text: 'Aktivitas', href: activeSegment === '/' ? '/#aktivitas' : '/aktivitas' },
 		{ text: 'Media', href: '/#media' },
-		{ text: 'Discord', href: '/#discord' },
+		{ text: 'Premium', href: '/#discord' },
 		{ text: 'Kontak', href: '/#kontak' }
 	]);
 
