@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://www.cryptosharia.id/tentang-kami",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://www.cryptosharia.id/tentang-kami",
       "permanent": true
