@@ -3,6 +3,25 @@ import type { RequestEvent } from '@sveltejs/kit';
 
 import { createServerCsApiClient } from '$lib/api/cs-api.server';
 import { toActivityCardItem, sortByFeaturedAndDate } from '$lib/activities/activity-card';
+import { env } from '$env/dynamic/public';
+
+export type SiteProfile = {
+	vision: string;
+	mission: string;
+	goals: string[];
+	members: Array<{ name: string; role: string; imageUrl: string }>;
+};
+
+async function loadSiteProfile(fetchFn: typeof fetch): Promise<SiteProfile | null> {
+	try {
+		const response = await fetchFn(`${env.PUBLIC_CS_API_URL}/site-profile`);
+		if (!response.ok) return null;
+		const profile = (await response.json()) as SiteProfile | null;
+		return profile?.vision && profile.mission ? profile : null;
+	} catch {
+		return null;
+	}
+}
 
 export const load = async ({ fetch }: RequestEvent) => {
 	const client = createServerCsApiClient(fetch);
@@ -21,9 +40,7 @@ export const load = async ({ fetch }: RequestEvent) => {
 	const items = error ? [] : (data?.data?.items ?? []).map(toActivityCardItem);
 	const sortedItems = sortByFeaturedAndDate(items);
 
-	return {
-		activities: sortedItems
-	};
+	return { activities: sortedItems, siteProfile: await loadSiteProfile(fetch) };
 };
 
 function readFormString(form: FormData, key: string) {

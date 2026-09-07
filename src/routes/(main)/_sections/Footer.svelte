@@ -6,7 +6,7 @@
 	import CryptoShariaLogo from '$lib/components/CryptoShariaLogo.svelte';
 
 	const quickLinks = [
-		{ name: 'Tentang Kami', href: '/' },
+		{ name: 'Tentang Kami', href: '/tentang-kami' },
 		{ name: 'Prinsip Kami', href: '/#prinsip' },
 		{ name: 'Pengurus', href: '/#pengurus' },
 		{ name: 'Aktivitas', href: '/#aktivitas' }

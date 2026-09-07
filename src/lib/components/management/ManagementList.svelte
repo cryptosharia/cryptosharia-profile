@@ -3,7 +3,7 @@
 	import Dialog from '$lib/components/ui/Dialog.svelte';
 	import { cn } from '$lib/utils';
 
-	import type { ManagementMember } from '$lib/data/management';
+	type ManagementMember = { name: string; role: string; image: string };
 
 	type Props = {
 		members: readonly ManagementMember[];

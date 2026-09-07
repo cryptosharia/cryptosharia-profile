@@ -3,12 +3,14 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import { Eye, Target } from '@lucide/svelte';
+	import type { SiteProfile } from '../+page.server';
 
-	const cards = [
+	let { profile = null }: { profile?: SiteProfile | null } = $props();
+
+	const cards = $derived([
 		{
 			title: 'Visi',
-			content:
-				'Menjadi platform media dan riset kripto syariah terbesar di dunia yang menjadi rujukan utama bagi umat Muslim dalam berinvestasi di ekonomi digital.',
+			content: profile?.vision ?? 'Menjadi platform media dan riset kripto syariah terbesar di dunia yang menjadi rujukan utama bagi umat Muslim dalam berinvestasi di ekonomi digital.',
 			Icon: Eye,
 			iconClass: 'bg-purple-600 text-white',
 			titleClass: 'text-purple-600',
@@ -16,14 +18,13 @@
 		},
 		{
 			title: 'Misi',
-			content:
-				'Menyediakan konten edukasi kripto yang mudah dipahami dan sesuai syariah, mengembangkan komunitas yang aktif dan inklusif, memberikan analisis serta riset market yang akurat, dan menciptakan solusi digital agar masyarakat dapat bertransisi ke ekonomi berbasis blockchain secara aman.',
+			content: profile?.mission ?? 'Menyediakan konten edukasi kripto yang mudah dipahami dan sesuai syariah, mengembangkan komunitas yang aktif dan inklusif, memberikan analisis serta riset market yang akurat, dan menciptakan solusi digital agar masyarakat dapat bertransisi ke ekonomi berbasis blockchain secara aman.',
 			Icon: Target,
 			iconClass: 'bg-blue-600 text-white',
 			titleClass: 'text-blue-600',
 			bgClass: 'bg-linear-to-br from-blue-50 to-background dark:from-blue-950/60'
 		}
-	];
+	]);
 </script>
 
 <PageSection id="vision-mission">
@@ -42,4 +43,12 @@
 			</Card>
 		{/each}
 	</div>
+	{#if profile?.goals?.length}
+		<Card class="mt-6 fl-space-y-3/4 fl-p-5/8 text-foreground">
+			<h2 class="font-serif text-2xl font-bold text-primary">Tujuan</h2>
+			<ul class="list-disc space-y-2 pl-5 fl-text-base/lg leading-relaxed">
+				{#each profile.goals as goal (goal)}<li>{goal}</li>{/each}
+			</ul>
+		</Card>
+	{/if}
 </PageSection>

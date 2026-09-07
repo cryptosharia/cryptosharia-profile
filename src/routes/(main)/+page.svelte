@@ -14,10 +14,10 @@
 
 <main>
 	<Hero />
-	<VisionMission />
+	<VisionMission profile={data.siteProfile} />
 	<Principles />
 	<QuickRedirects />
-	<Management />
+	<Management members={data.siteProfile?.members} />
 	<Activities activities={data.activities} />
 	<Ecosystem />
 	<Contact />
